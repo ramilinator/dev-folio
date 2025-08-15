@@ -784,10 +784,10 @@ section,
 /*--------------------------------------------------------------
 # About Section
 --------------------------------------------------------------*/
-.about .container {
+/* .about .container {
   background-color: var(--surface-color);
   padding: 30px;
-}
+} */
 
 .about .skills-content h5 {
   font-size: 18px;
