@@ -18,49 +18,50 @@
 }
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
+
 :root {
-  --background-color: #ffffff;
+  --background-color: #1f1f1f;
   /* Background color for the entire website, including individual sections */
-  --default-color: #4e4e4e;
+  --default-color: #ffffff;
   /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #0a090f;
+  --heading-color: #ffffff;
   /* Color for headings, subheadings and title throughout the website */
   --accent-color: #00ADB5;
   /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-  --surface-color: #ffffff;
+  --surface-color: #232323;
   /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
-  --contrast-color: #ffffff;
+  --contrast-color: #310606;
   /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
-  --nav-color: #ffffff;
+  --nav-color: rgba(236, 236, 236, 0.59);
   /* The default color of the main navmenu links */
   --nav-hover-color: #ffffff;
   /* Applied to main navmenu links when they are hovered over or active */
-  --nav-mobile-background-color: #ffffff;
+  --nav-mobile-background-color: #393939;
   /* Used as the background color for mobile navigation menu */
-  --nav-dropdown-background-color: #ffffff;
+  --nav-dropdown-background-color: #393939;
   /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
-  --nav-dropdown-color: #212529;
+  --nav-dropdown-color: #ffffff;
   /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #0078ff;
+  --nav-dropdown-hover-color: #ececec;
   /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 }
 
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
 
 .light-background {
-  --background-color: #f9f9f9;
-  --surface-color: #ffffff;
+  --background-color: #2c2c2c;
+  --surface-color: #323232;
 }
 
 .dark-background {
-  --background-color: #060606;
+  --background-color: #040b14;
   --default-color: #ffffff;
   --heading-color: #ffffff;
-  --surface-color: #252525;
+  --surface-color: #151f2b;
   --contrast-color: #ffffff;
 }
 
@@ -164,11 +165,11 @@ h6 {
 # Global Header
 --------------------------------------------------------------*/
 .header {
-  --background-color: #000000;
-  --default-color: #ffffff;
-  --heading-color: #ffffff;
+  --background-color: #1b1b1b;
+  --contrast-color: #444444;
   color: var(--default-color);
   background-color: var(--background-color);
+  border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 80%);
   padding: 20px 0;
   transition: all 0.5s;
   z-index: 997;
@@ -698,7 +699,7 @@ section,
 
 .hero:before {
   content: "";
-  background: color-mix(in srgb, var(--background-color), transparent 30%);
+  /* background: color-mix(in srgb, var(--background-color), transparent 30%); */
   position: absolute;
   inset: 0;
   z-index: 2;
@@ -735,12 +736,44 @@ section,
   }
 }
 
+.hero .background-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.hero .background-elements .bg-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(45deg, color-mix(in srgb, var(--accent-color), transparent 90%), color-mix(in srgb, var(--accent-color), transparent 95%));
+  animation: float 6s ease-in-out infinite;
+}
+
+.hero .background-elements .bg-circle.circle-1 {
+  width: 300px;
+  height: 300px;
+  top: 10%;
+  right: 10%;
+  animation-delay: 0s;
+}
+
+.hero .background-elements .bg-circle.circle-2 {
+  width: 200px;
+  height: 200px;
+  bottom: 20%;
+  left: 5%;
+  animation-delay: 2s;
+}
+
 /*--------------------------------------------------------------
 # About Section
 --------------------------------------------------------------*/
 .about .container {
   background-color: var(--surface-color);
-  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
   padding: 30px;
 }
 
@@ -871,54 +904,221 @@ section,
 /*--------------------------------------------------------------
 # Services Section
 --------------------------------------------------------------*/
-.services .service-item {
-  background-color: var(--surface-color);
-  box-shadow: 0px 5px 90px 0px rgba(0, 0, 0, 0.1);
-  padding: 60px 30px;
-  transition: all ease-in-out 0.3s;
-  border-radius: 18px;
-  border-bottom: 5px solid var(--surface-color);
-  height: 100%;
+.services .service-header {
+  margin-bottom: 60px;
 }
 
-.services .service-item .icon {
+.services .service-header .service-intro .service-heading {
+  font-size: 48px;
+  margin-bottom: 0;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--heading-color);
+}
+
+.services .service-header .service-intro .service-heading div {
+  display: block;
+  position: relative;
+}
+
+.services .service-header .service-intro .service-heading span {
+  display: block;
+  color: var(--accent-color);
+}
+
+@media (max-width: 992px) {
+  .services .service-header .service-intro .service-heading {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .services .service-header .service-intro .service-heading {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+}
+
+.services .service-header .service-summary p {
+  margin-bottom: 25px;
+  color: var(--default-color);
+}
+
+.services .service-header .service-summary .service-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 30px;
+  background-color: var(--accent-color);
   color: var(--contrast-color);
-  background: var(--accent-color);
-  margin: 0;
-  width: 64px;
-  height: 64px;
-  border-radius: 50px;
-  display: flex;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.services .service-header .service-summary .service-btn i {
+  margin-left: 10px;
+  transition: transform 0.3s ease;
+}
+
+.services .service-header .service-summary .service-btn:hover {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 15%);
+  color: var(--contrast-color);
+}
+
+.services .service-header .service-summary .service-btn:hover i {
+  transform: translateX(5px);
+}
+
+@media (max-width: 992px) {
+  .services .service-header .service-summary {
+    margin-top: 30px;
+  }
+}
+
+.services .service-card {
+  padding: 40px 40px 40px 40px;
+  margin-bottom: 30px;
+  border: 2px solid color-mix(in srgb, var(--accent-color), transparent 90%);
+  transition: all 0.3s ease;
+}
+
+.services .service-card .service-icon {
+  margin-bottom: 25px;
+  background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
+  border-radius: 10px;
+  width: 64px;
+  height: 64px;
+}
+
+.services .service-card .service-icon i {
+  font-size: 32px;
+  color: var(--accent-color);
+  transition: all 0.3s ease;
+}
+
+.services .service-card h3 {
   font-size: 28px;
-  transition: ease-in-out 0.3s;
-}
-
-.services .service-item h3 {
+  margin-bottom: 15px;
   font-weight: 700;
-  margin: 10px 0 15px 0;
-  font-size: 22px;
-  transition: ease-in-out 0.3s;
 }
 
-.services .service-item p {
-  line-height: 24px;
-  font-size: 14px;
+.services .service-card h3 a {
+  color: var(--heading-color);
+  transition: color 0.3s ease;
+}
+
+.services .service-card h3 a span {
+  display: block;
+}
+
+.services .service-card h3 a:hover {
+  color: var(--accent-color);
+}
+
+.services .service-card p {
+  color: var(--default-color);
+  transition: color 0.3s ease;
   margin-bottom: 0;
 }
 
-@media (min-width: 1365px) {
-  .services .service-item:hover {
-    transform: translateY(-10px);
-    border-color: var(--accent-color);
+.services .service-card .card-action {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--accent-color);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+
+.services .service-card .card-action i {
+  font-size: 24px;
+  color: var(--contrast-color);
+  transition: transform 0.3s ease;
+}
+
+.services .service-card .card-action:hover i {
+  transform: rotate(45deg);
+}
+
+.services .service-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--surface-color);
+  clip-path: polygon(70% 0, 100% 30%, 100% 100%, 0 100%, 0 0);
+  z-index: -1;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.services .service-card:hover {
+  border-color: transparent;
+}
+
+.services .service-card:hover::before {
+  opacity: 1;
+  visibility: visible;
+  background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+}
+
+.services .service-card:hover h3 a {
+  color: var(--accent-color);
+}
+
+.services .service-card:hover h3 a:hover {
+  color: var(--accent-color);
+}
+
+.services .service-card:hover p {
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+}
+
+.services .service-card:hover .card-action {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.services .service-card:hover .service-icon i {
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .services .service-card {
+    padding: 150px 25px 25px;
   }
 
-  .services .service-item:hover h3 {
-    color: var(--accent-color);
+  .services .service-card h3 {
+    font-size: 24px;
+  }
+
+  .services .service-card .service-icon {
+    position: absolute;
+    top: 40px;
+    left: 25px;
   }
 }
+
+@media (max-width: 768px) {
+  .services {
+    padding: 70px 0 50px;
+  }
+}
+
 
 /*--------------------------------------------------------------
 # Stats Section
@@ -975,111 +1175,166 @@ section,
 /*--------------------------------------------------------------
 # Portfolio Section
 --------------------------------------------------------------*/
+@media (max-width: 991px) {
+  .portfolio .filter-sidebar {
+    margin-bottom: 30px;
+  }
+}
+
+.portfolio .filters-wrapper {
+  background-color: color-mix(in srgb, var(--surface-color), var(--default-color) 3%);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 991px) {
+  .portfolio .filters-wrapper {
+    padding: 20px;
+  }
+}
+
 .portfolio .portfolio-filters {
   padding: 0;
-  margin: 0 auto 20px auto;
+  margin: 0;
   list-style: none;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+@media (max-width: 991px) {
+  .portfolio .portfolio-filters {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
 
 .portfolio .portfolio-filters li {
   cursor: pointer;
-  display: inline-block;
-  padding: 0;
+  padding: 12px 20px;
   font-size: 16px;
-  font-weight: 600;
-  margin: 0 10px;
+  font-weight: 500;
   line-height: 1;
-  text-transform: uppercase;
-  margin-bottom: 5px;
+  color: var(--default-color);
   transition: all 0.3s ease-in-out;
+  border-radius: 6px;
+  background: transparent;
+  position: relative;
+  border-left: 3px solid transparent;
 }
 
-.portfolio .portfolio-filters li:hover,
-.portfolio .portfolio-filters li.filter-active {
-  color: var(--accent-color);
-}
-
-.portfolio .portfolio-filters li:first-child {
-  margin-left: 0;
-}
-
-.portfolio .portfolio-filters li:last-child {
-  margin-right: 0;
-}
-
-@media (max-width: 575px) {
+@media (max-width: 991px) {
   .portfolio .portfolio-filters li {
-    font-size: 14px;
-    margin: 0 5px;
+    padding: 8px 16px;
+    border: 1px solid color-mix(in srgb, var(--accent-color), transparent 80%);
+    border-left-width: 3px;
   }
 }
 
-.portfolio .portfolio-content {
+.portfolio .portfolio-filters li:hover {
+  color: var(--accent-color);
+  background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+  border-left-color: color-mix(in srgb, var(--accent-color), transparent 50%);
+}
+
+.portfolio .portfolio-filters li.filter-active {
+  color: var(--accent-color);
+  background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+  border-left-color: var(--accent-color);
+  font-weight: 600;
+}
+
+.portfolio .portfolio-wrap {
+  transition: 0.4s;
   position: relative;
   overflow: hidden;
-  border-radius: 18px;
-  background: var(--surface-color);
-  padding: 36px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  height: 100%;
 }
 
-.portfolio .portfolio-item .portfolio-info {
-  opacity: 0;
+.portfolio .portfolio-wrap img {
+  transition: transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+}
+
+.portfolio .portfolio-wrap .portfolio-info {
   position: absolute;
+  bottom: 0;
   left: 0;
   right: 0;
-  bottom: 0;
+  padding: 25px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 60%, rgba(0, 0, 0, 0) 100%);
   z-index: 3;
-  transition: all ease-in-out 0.3s;
-  background: color-mix(in srgb, var(--background-color), transparent 10%);
-  padding: 36px;
-  display: flex;
-  flex-direction: column;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transform: translateY(20px);
+  opacity: 0;
 }
 
-.portfolio .portfolio-item .portfolio-info h4 {
-  font-size: 18px;
-  font-weight: 600;
-  padding-right: 50px;
+.portfolio .portfolio-wrap .portfolio-info .content {
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transform: translateY(20px);
 }
 
-.portfolio .portfolio-item .portfolio-info p {
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
-  font-size: 14px;
-  margin-bottom: 0;
-  padding-right: 50px;
-}
-
-.more-info {
-  margin-top: 10px;
-  width: 100%;
-}
-
-.portfolio .portfolio-item .portfolio-info .preview-link,
-.portfolio .portfolio-item .portfolio-info .details-link {
-  /* position: absolute; */
-  /* right: 50px;
-  
-  top: calc(50% - 14px); */
-  font-size: 24px;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
-  transition: 0.3s;
-  line-height: 0;
-}
-
-.portfolio .portfolio-item .portfolio-info .preview-link:hover,
-.portfolio .portfolio-item .portfolio-info .details-link:hover {
+.portfolio .portfolio-wrap .portfolio-info .category {
+  display: inline-block;
   color: var(--accent-color);
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
 }
 
-.portfolio .portfolio-item .portfolio-info .details-link {
-  right: 14px;
-  font-size: 28px;
+.portfolio .portfolio-wrap .portfolio-info h4 {
+  font-size: 20px;
+  color: var(--accent-color);
+  font-weight: 700;
+  margin-bottom: 15px;
 }
 
-.portfolio .portfolio-item:hover .portfolio-info {
+.portfolio .portfolio-wrap .portfolio-info .portfolio-links {
+  display: flex;
+  gap: 12px;
+}
+
+.portfolio .portfolio-wrap .portfolio-info .portfolio-links a {
+  color: var(--contrast-color);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: color-mix(in srgb, var(--accent-color), transparent 30%);
+  border-radius: 50%;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.portfolio .portfolio-wrap .portfolio-info .portfolio-links a:hover {
+  background-color: var(--accent-color);
+  transform: translateY(-3px);
+}
+
+.portfolio .portfolio-wrap:hover {
+  transform: translateY(-5px);
+}
+
+.portfolio .portfolio-wrap:hover img {
+  transform: scale(1.08);
+}
+
+.portfolio .portfolio-wrap:hover .portfolio-info {
+  transform: translateY(0);
   opacity: 1;
-  bottom: 0;
+}
+
+.portfolio .portfolio-wrap:hover .portfolio-info .content {
+  transform: translateY(0);
 }
 
 /*--------------------------------------------------------------
@@ -1196,212 +1451,332 @@ section,
 /*--------------------------------------------------------------
 # Testimonials Section
 --------------------------------------------------------------*/
-.testimonials {
-  padding: 80px 0;
+.testimonials .testimonial-masonry {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
   position: relative;
 }
 
-.testimonials:before {
+.testimonials .testimonial-masonry::before {
   content: "";
-  background: color-mix(in srgb, var(--background-color), transparent 30%);
   position: absolute;
-  inset: 0;
-  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, color-mix(in srgb, var(--accent-color), transparent 95%), transparent);
+  opacity: 0.5;
+  z-index: -1;
 }
 
-.testimonials .testimonials-bg {
+.testimonials .testimonial-item:nth-child(3n-1) {
+  margin-top: 3rem;
+}
+
+.testimonials .testimonial-item:nth-child(3n) {
+  margin-top: 1.5rem;
+}
+
+.testimonials .testimonial-item.highlight .testimonial-content {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 92%);
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 70%);
+}
+
+.testimonials .testimonial-item.highlight .testimonial-content .quote-pattern {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 85%);
+}
+
+.testimonials .testimonial-item.highlight .testimonial-content .quote-pattern i {
+  color: var(--accent-color);
+}
+
+.testimonials .testimonial-content {
+  background-color: var(--surface-color);
+  border-radius: 20px;
+  padding: 2rem;
+  position: relative;
+  transition: all 0.3s ease;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 92%);
+}
+
+.testimonials .testimonial-content:hover {
+  transform: translateY(-5px);
+}
+
+.testimonials .testimonial-content p {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin: 1.5rem 0;
+  position: relative;
+}
+
+.testimonials .quote-pattern {
   position: absolute;
-  inset: 0;
-  display: block;
+  top: -1.25rem;
+  left: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: var(--surface-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 92%);
+}
+
+.testimonials .quote-pattern i {
+  font-size: 1.25rem;
+  color: var(--accent-color);
+}
+
+.testimonials .client-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 92%);
+}
+
+.testimonials .client-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.testimonials .client-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: 1;
 }
 
-.testimonials .container {
-  position: relative;
-  z-index: 3;
+.testimonials .client-details h3 {
+  font-size: 1.125rem;
+  margin-bottom: 0.25rem;
 }
 
-.testimonials .testimonials-carousel,
-.testimonials .testimonials-slider {
-  overflow: hidden;
+.testimonials .client-details .position {
+  font-size: 0.875rem;
+  color: color-mix(in srgb, var(--heading-color), transparent 40%);
 }
 
-.testimonials .testimonial-item {
-  text-align: center;
+@media (max-width: 1199.98px) {
+  .testimonials .testimonial-masonry {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .testimonials .testimonial-item:nth-child(3n-1),
+  .testimonials .testimonial-item:nth-child(3n) {
+    margin-top: 0;
+  }
+
+  .testimonials .testimonial-item:nth-child(even) {
+    margin-top: 2rem;
+  }
 }
 
-.testimonials .testimonial-item .testimonial-img {
-  width: 100px;
-  border-radius: 50%;
-  border: 6px solid color-mix(in srgb, var(--default-color), transparent 85%);
-  margin: 0 auto;
-}
+@media (max-width: 767.98px) {
+  .testimonials .testimonial-masonry {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
 
-.testimonials .testimonial-item h3 {
-  font-size: 20px;
-  font-weight: bold;
-  margin: 10px 0 5px 0;
-}
+  .testimonials .testimonial-item:nth-child(even) {
+    margin-top: 0;
+  }
 
-.testimonials .testimonial-item h4 {
-  font-size: 14px;
-  margin: 0 0 15px 0;
-  color: color-mix(in srgb, var(--default-color), transparent 40%);
-}
+  .testimonials .testimonial-content {
+    padding: 1.5rem;
+  }
 
-.testimonials .testimonial-item .stars {
-  margin-bottom: 15px;
-}
+  .testimonials .testimonial-content p {
+    font-size: 0.9375rem;
+    margin: 1.25rem 0;
+  }
 
-.testimonials .testimonial-item .stars i {
-  color: #ffc107;
-  margin: 0 1px;
-}
+  .testimonials .quote-pattern {
+    width: 2.25rem;
+    height: 2.25rem;
+    top: -1.125rem;
+  }
 
-.testimonials .testimonial-item .quote-icon-left,
-.testimonials .testimonial-item .quote-icon-right {
-  color: color-mix(in srgb, var(--default-color), transparent 40%);
-  font-size: 26px;
-  line-height: 0;
-}
+  .testimonials .quote-pattern i {
+    font-size: 1.125rem;
+  }
 
-.testimonials .testimonial-item .quote-icon-left {
-  display: inline-block;
-  left: -5px;
-  position: relative;
-}
+  .testimonials .client-info {
+    margin-top: 1.25rem;
+    padding-top: 1.25rem;
+  }
 
-.testimonials .testimonial-item .quote-icon-right {
-  display: inline-block;
-  right: -5px;
-  position: relative;
-  top: 10px;
-  transform: scale(-1, -1);
-}
+  .testimonials .client-image {
+    width: 45px;
+    height: 45px;
+  }
 
-.testimonials .testimonial-item p {
-  font-style: italic;
-  margin: 0 auto 15px auto;
-}
+  .testimonials .client-details h3 {
+    font-size: 1rem;
+  }
 
-.testimonials .swiper-wrapper {
-  height: auto;
-}
-
-.testimonials .swiper-pagination {
-  margin-top: 20px;
-  position: relative;
-}
-
-.testimonials .swiper-pagination .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-  background-color: color-mix(in srgb, var(--default-color), transparent 50%);
-  opacity: 0.5;
-}
-
-.testimonials .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: var(--default-color);
-  opacity: 1;
-}
-
-@media (min-width: 992px) {
-  .testimonials .testimonial-item p {
-    width: 80%;
+  .testimonials .client-details .position {
+    font-size: 0.8125rem;
   }
 }
 
 /*--------------------------------------------------------------
 # Contact Section
 --------------------------------------------------------------*/
-.contact .info-wrap {
+.contact .info-box {
   background-color: var(--surface-color);
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-  padding: 30px;
-  margin-bottom: 30px;
+  color: var(--default-color);
+  padding: 3rem;
+  border-radius: 1rem;
+  height: 100%;
 }
 
-.contact .info-item i {
-  font-size: 20px;
-  color: var(--accent-color);
-  width: 56px;
-  height: 56px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.3s ease-in-out;
-  border-radius: 50%;
-  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 40%);
-  margin-right: 15px;
+.contact .info-box h3 {
+  color: var(--default-color);
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
-.contact .info-item h3 {
-  font-size: 18px;
-  font-weight: 700;
-  margin: 0 0 2px 0;
-}
-
-.contact .info-item p {
-  padding: 0;
-  margin-bottom: 0;
-  font-size: 14px;
-}
-
-.contact .info-item:hover i {
-  background: var(--accent-color);
-  color: var(--contrast-color);
-}
-
-.contact .php-email-form {
-  background-color: var(--surface-color);
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-  padding: 30px;
-}
-
-@media (max-width: 575px) {
-  .contact .php-email-form {
-    padding: 20px;
+@media (max-width: 767.98px) {
+  .contact .info-box h3 {
+    font-size: 1.75rem;
   }
 }
 
-.contact .php-email-form input[type=text],
-.contact .php-email-form input[type=email],
-.contact .php-email-form textarea {
-  font-size: 14px;
-  padding: 10px 15px;
-  box-shadow: none;
-  border-radius: 0;
-  color: var(--default-color);
-  background-color: color-mix(in srgb, var(--background-color), transparent 50%);
-  border-color: color-mix(in srgb, var(--default-color), transparent 80%);
+.contact .info-box p {
+  opacity: 0.8;
+  margin-bottom: 2rem;
 }
 
-.contact .php-email-form input[type=text]:focus,
-.contact .php-email-form input[type=email]:focus,
-.contact .php-email-form textarea:focus {
+.contact .info-box a {
+  color: var(--default-color);
+}
+
+@media (max-width: 992px) {
+  .contact .info-box {
+    padding: 1.5rem;
+  }
+}
+
+.contact .info-item {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.contact .info-item:last-child {
+  margin-bottom: 0;
+}
+
+.contact .info-item .icon-box {
+  width: 3.5rem;
+  height: 3.5rem;
+  background-color: color-mix(in srgb, var(--contrast-color), transparent 85%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: 0.3s;
+}
+
+.contact .info-item .icon-box i {
+  font-size: 1.5rem;
+  color: var(--default-color);
+}
+
+.contact .info-item:hover .icon-box {
+  background-color: color-mix(in srgb, var(--default-color), transparent 70%);
+}
+
+.contact .info-item .content h4 {
+  color: var(--default-color);
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.contact .info-item .content p {
+  margin-bottom: 0.25rem;
+  font-size: 0.95rem;
+}
+
+.contact .info-item .content p:last-child {
+  margin-bottom: 0;
+}
+
+.contact .contact-form {
+  background-color: var(--surface-color);
+  padding: 3rem;
+  border-radius: 1rem;
+  height: 100%;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 992px) {
+  .contact .contact-form {
+    padding: 1.5rem;
+  }
+}
+
+.contact .contact-form h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .contact .contact-form h3 {
+    font-size: 1.75rem;
+  }
+}
+
+.contact .contact-form p {
+  color: color-mix(in srgb, var(--default-color), transparent 25%);
+  margin-bottom: 2rem;
+}
+
+.contact .contact-form .form-control,
+.contact .contact-form .form-select {
+  padding: 0.875rem 1.25rem;
+  border-color: color-mix(in srgb, var(--default-color), transparent 90%);
+  border-radius: 0.5rem;
+  background-color: color-mix(in srgb, var(--surface-color) 90%, white 5%);
+  color: var(--default-color);
+}
+
+.contact .contact-form .form-control:focus,
+.contact .contact-form .form-select:focus {
+  box-shadow: none;
   border-color: var(--accent-color);
 }
 
-.contact .php-email-form input[type=text]::placeholder,
-.contact .php-email-form input[type=email]::placeholder,
-.contact .php-email-form textarea::placeholder {
-  color: color-mix(in srgb, var(--default-color), transparent 70%);
+.contact .contact-form .form-control::placeholder,
+.contact .contact-form .form-select::placeholder {
+  color: color-mix(in srgb, var(--default-color), transparent 50%);
 }
 
-.contact .php-email-form button[type=submit] {
+.contact .contact-form .btn {
+  background-color: var(--accent-color);
   color: var(--contrast-color);
-  background: var(--accent-color);
-  border: 0;
-  padding: 10px 30px;
-  transition: 0.4s;
-  border-radius: 50px;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: 0.3s;
 }
 
-.contact .php-email-form button[type=submit]:hover {
-  background: color-mix(in srgb, var(--accent-color), transparent 20%);
+.contact .contact-form .btn i {
+  font-size: 1.25rem;
+}
+
+.contact .contact-form .btn:hover {
+  background-color: color-mix(in srgb, var(--accent-color), var(--contrast-color) 20%);
 }
 
 /*--------------------------------------------------------------
