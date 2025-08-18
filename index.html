@@ -53,7 +53,7 @@
 
 <body class="index-page">
 
-  <header id="header" class="header d-flex align-items-center sticky-top">
+  <header id="header" class="header d-flex align-items-center">
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
       <a href="index.html" class="logo d-flex align-items-center">
@@ -66,25 +66,8 @@
         <ul>
           <li><a href="#hero" class="active">Home<br></a></li>
           <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
+          <li><a href="#services">Skills</a></li>
           <li><a href="#portfolio">Portfolio</a></li>
-          <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="#">Dropdown 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i
-                    class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="#">Deep Dropdown 1</a></li>
-                  <li><a href="#">Deep Dropdown 2</a></li>
-                  <li><a href="#">Deep Dropdown 3</a></li>
-                  <li><a href="#">Deep Dropdown 4</a></li>
-                  <li><a href="#">Deep Dropdown 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Dropdown 2</a></li>
-              <li><a href="#">Dropdown 3</a></li>
-              <li><a href="#">Dropdown 4</a></li>
-            </ul>
           </li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -99,7 +82,7 @@
     <!-- Hero Section -->
     <section id="hero" class="hero section dark-background">
 
-      <img src="assets/img/hero-img.jpg" alt="" data-aos="fade-in">
+      <img src="assets/img/hero-img4.jpg" alt="" data-aos="fade-in">
 
 
       <div class="container d-flex flex-column align-items-center justify-content-center text-center" data-aos="fade-up"
@@ -123,11 +106,13 @@
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
         <div class="row gy-4 gx-5">
+
           <div class="col-md-6">
-
-
-            <img src="assets/img/profile-img.png" class="img-fluid" alt="">
-
+            <div class="profile-img-wrapper">
+              <div class="profile-img">
+                <img src="assets/img/profile-img.png" class="img-fluid" alt="">
+              </div>
+            </div>
           </div>
 
           <div class="col-md-6">
@@ -158,18 +143,24 @@
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="row justify-content-center skills-animation">
+        <div class="row justify-content-center align-items-stretch skills-animation">
 
           <!-- Skills Item -->
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-card skill-item position-relative z-1">
-              <div class="service-icon">
-                <i class="devicon-html5-plain"></i>
-              </div>
-              <h4>HTML5</h4>
-              <span class="skill-percentage">95%</span>
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">
+            <div class="service-card skill-item position-relative z-1 min-h-245">
+              <div class="skill-item-wrap">
+                <div class="service-icon">
+                  <i class="devicon-html5-plain"></i>
+                </div>
+                <div class="skill-item-name">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <h4>HTML5</h4>
+                    <span class="skill-percentage">95%</span>
+                  </div>
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0"
+                      aria-valuemax="100" style="width: 95%;"></div>
+                  </div>
                 </div>
               </div>
               <div class="skill-tooltip">Expert level knowledge of semantic HTML5 and modern CSS3 techniques</div>
@@ -178,14 +169,20 @@
 
           <!-- Skills Item -->
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-card skill-item position-relative z-1">
-              <div class="service-icon">
-                <i class="devicon-css3-plain"></i>
-              </div>
-              <h4>CSS3</h4>
-              <span class="skill-percentage">95%</span>
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">
+            <div class="service-card skill-item position-relative z-1 min-h-245">
+              <div class="skill-item-wrap">
+                <div class="service-icon">
+                  <i class="devicon-css3-plain"></i>
+                </div>
+                <div class="skill-item-name">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <h4>CSS3</h4>
+                    <span class="skill-percentage">95%</span>
+                  </div>
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0"
+                      aria-valuemax="100" style="width: 95%;"></div>
+                  </div>
                 </div>
               </div>
               <div class="skill-tooltip">Expert level knowledge of semantic HTML5 and modern CSS3 techniques</div>
@@ -194,102 +191,166 @@
 
           <!-- Skills Item -->
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-card skill-item position-relative z-1">
-              <div class="service-icon">
-                <i class="devicon-javascript-plain"></i>
-              </div>
-              <h4>JavaScript</h4>
-              <span class="skill-percentage">95%</span>
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">
+            <div class="service-card skill-item position-relative z-1 min-h-245">
+              <div class="skill-item-wrap">
+                <div class="service-icon">
+                  <i class="devicon-javascript-plain"></i>
+                </div>
+                <div class="skill-item-name">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <h4>JavaScript</h4>
+                    <span class="skill-percentage">85%</span>
+                  </div>
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0"
+                      aria-valuemax="100" style="width: 85%;"></div>
+                  </div>
                 </div>
               </div>
-              <div class="skill-tooltip">Expert level knowledge of semantic HTML5 and modern CSS3 techniques</div>
+              <div class="skill-tooltip">Proficient in JavaScript with solid understanding of ES6 features, DOM
+                manipulation, and working with APIs.</div>
             </div>
           </div>
 
           <!-- Skills Item -->
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-card skill-item position-relative z-1">
-              <div class="service-icon">
-                <i class="devicon-php-plain"></i>
-              </div>
-              <h4>PHP</h4>
-              <span class="skill-percentage">95%</span>
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">
+            <div class="service-card skill-item position-relative z-1 min-h-245">
+              <div class="skill-item-wrap">
+                <div class="service-icon">
+                  <i class="devicon-react-original"></i>
+                </div>
+                <div class="skill-item-name">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <h4>React</h4>
+                    <span class="skill-percentage">80%</span>
+                  </div>
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0"
+                      aria-valuemax="100" style="width: 80%;"></div>
+                  </div>
                 </div>
               </div>
-              <div class="skill-tooltip">Expert level knowledge of semantic HTML5 and modern CSS3 techniques</div>
+              <div class="skill-tooltip">Experience with React hooks, state management, and component architecture.
+              </div>
             </div>
           </div>
 
           <!-- Skills Item -->
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-card skill-item position-relative z-1">
-              <div class="service-icon">
-                <i class="devicon-sass-original"></i>
-              </div>
-              <h4>SASS</h4>
-              <span class="skill-percentage">95%</span>
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">
+            <div class="service-card skill-item position-relative z-1 min-h-245">
+              <div class="skill-item-wrap">
+                <div class="service-icon">
+                  <i class="devicon-php-plain"></i>
+                </div>
+                <div class="skill-item-name">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <h4>PHP</h4>
+                    <span class="skill-percentage">75%</span>
+                  </div>
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0"
+                      aria-valuemax="100" style="width: 75%;"></div>
+                  </div>
                 </div>
               </div>
-              <div class="skill-tooltip">Expert level knowledge of semantic HTML5 and modern CSS3 techniques</div>
+              <div class="skill-tooltip">Working knowledge of PHP, basic understanding of object-oriented programming
+                (OOP), and some exposure to modern frameworks</div>
             </div>
           </div>
 
           <!-- Skills Item -->
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-card skill-item position-relative z-1">
-              <div class="service-icon">
-                <i class="devicon-bootstrap-plain"></i>
-              </div>
-              <h4>Bootstrap</h4>
-              <span class="skill-percentage">95%</span>
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">
+            <div class="service-card skill-item position-relative z-1 min-h-245">
+              <div class="skill-item-wrap">
+                <div class="service-icon">
+                  <i class="devicon-mysql-plain-wordmark"></i>
+                </div>
+                <div class="skill-item-name">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <h4>SQL</h4>
+                    <span class="skill-percentage">75%</span>
+                  </div>
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0"
+                      aria-valuemax="100" style="width: 75%;"></div>
+                  </div>
                 </div>
               </div>
-              <div class="skill-tooltip">Expert level knowledge of semantic HTML5 and modern CSS3 techniques</div>
+              <div class="skill-tooltip">Working knowledge of SQL with ability to write basic queries, joins, and simple
+                data manipulation</div>
             </div>
           </div>
 
           <!-- Skills Item -->
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-card skill-item position-relative z-1">
-              <div class="service-icon">
-                <i class="devicon-tailwindcss-original"></i>
-              </div>
-              <h4>Tailwind</h4>
-              <span class="skill-percentage">95%</span>
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">
+            <div class="service-card skill-item position-relative z-1 min-h-245">
+              <div class="skill-item-wrap">
+                <div class="service-icon">
+                  <i class="devicon-sass-original"></i>
+                </div>
+                <div class="skill-item-name">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <h4>SASS</h4>
+                    <span class="skill-percentage">80%</span>
+                  </div>
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0"
+                      aria-valuemax="100" style="width: 80%;"></div>
+                  </div>
                 </div>
               </div>
-              <div class="skill-tooltip">Expert level knowledge of semantic HTML5 and modern CSS3 techniques</div>
+              <div class="skill-tooltip">Proficient in SASS with solid understanding of variables, mixins, nesting, and
+                creating maintainable style structures</div>
             </div>
           </div>
 
           <!-- Skills Item -->
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-card skill-item position-relative z-1">
-              <div class="service-icon">
-                <i class="devicon-figma-plain"></i>
-              </div>
-              <h4>Figma</h4>
-              <span class="skill-percentage">95%</span>
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">
+            <div class="service-card skill-item position-relative z-1 min-h-245">
+              <div class="skill-item-wrap">
+                <div class="service-icon">
+                  <i class="devicon-bootstrap-plain"></i>
+                </div>
+                <div class="skill-item-name">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <h4>Bootstrap</h4>
+                    <span class="skill-percentage">80%</span>
+                  </div>
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0"
+                      aria-valuemax="100" style="width: 80%;"></div>
+                  </div>
                 </div>
               </div>
-              <div class="skill-tooltip">Expert level knowledge of semantic HTML5 and modern CSS3 techniques</div>
+              <div class="skill-tooltip">Proficient in Bootstrap with solid experience in utilizing its grid system,
+                components, and utilities for responsive web design</div>
+            </div>
+          </div>
+
+          <!-- Skills Item -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-card skill-item position-relative z-1 min-h-245">
+              <div class="skill-item-wrap">
+                <div class="service-icon">
+                  <i class="devicon-tailwindcss-original"></i>
+                </div>
+                <div class="skill-item-name">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <h4>Tailwind CSS</h4>
+                    <span class="skill-percentage">80%</span>
+                  </div>
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0"
+                      aria-valuemax="100" style="width: 80%;"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="skill-tooltip">Proficient in Tailwind CSS with solid experience in utility-first styling,
+                responsive design, and customizing configurations</div>
             </div>
           </div>
 
         </div>
-
       </div>
 
     </section><!-- /Services Section -->
@@ -297,30 +358,30 @@
     <!-- Stats Section -->
     <section id="stats" class="stats section accent-background">
 
-      <img src="assets/img/stats-bg.jpg" alt="" data-aos="fade-in">
+      <img src="assets/img/hero-img4.jpg" alt="" data-aos="fade-in">
 
       <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
 
         <div class="row gy-4">
 
           <div class="col-lg-3 col-md-6">
-            <div class="stats-item text-center w-100 h-100">
+            <div class="stats-item text-center w-100 min-h-245">
               <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="0"
-                class="purecounter">232</span>
+                class="purecounter">20+</span>
               <p>Clients</p>
             </div>
           </div><!-- End Stats Item -->
 
           <div class="col-lg-3 col-md-6">
-            <div class="stats-item text-center w-100 h-100">
+            <div class="stats-item text-center w-100 min-h-245">
               <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="0"
-                class="purecounter">521</span>
+                class="purecounter">50+</span>
               <p>Projects</p>
             </div>
           </div><!-- End Stats Item -->
 
           <div class="col-lg-3 col-md-6">
-            <div class="stats-item text-center w-100 h-100">
+            <div class="stats-item text-center w-100 min-h-245">
               <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="0"
                 class="purecounter">1453</span>
               <p>Hours Of Support</p>
@@ -328,9 +389,9 @@
           </div><!-- End Stats Item -->
 
           <div class="col-lg-3 col-md-6">
-            <div class="stats-item text-center w-100 h-100">
+            <div class="stats-item text-center w-100 min-h-245">
               <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="0"
-                class="purecounter">32</span>
+                class="purecounter">50+</span>
               <p>Awards</p>
             </div>
           </div><!-- End Stats Item -->
@@ -362,8 +423,8 @@
                   <li data-filter="*" class="filter-active">All Projects</li>
                   <li data-filter=".web-des">Web Design</li>
                   <li data-filter=".web-dev">Web Development</li>
-                  <li data-filter=".branding">Branding</li>
-                  <li data-filter=".Books">Books</li>
+                  <li data-filter=".branding">Banner Design</li>
+                  <li data-filter=".Books">Logo</li>
                 </ul>
               </div>
             </div>
@@ -376,14 +437,20 @@
                     <img src="./assets/img/portfolio/webdev-1.png" class="img-fluid" alt="Portfolio Image"
                       loading="lazy">
                     <div class="portfolio-info">
-                      <div class="content">
-                        <p>A responsive and modern front-end website for AI Frankie, built with Handlebars.js, Tailwind
-                          CSS, HTML5, and CSS3.</p>
-                        <div class="portfolio-links">
-                          <a href="./assets/img/portfolio/webdev-1.png" class="glightbox"><i
-                              class="bi bi-plus-lg"></i></a>
-                          <a href="https://viewinsurance.com.au/"><i class="bi bi-arrow-right"></i></a>
-                        </div>
+                      <h4>Description:</h4>
+                      <p>View Insurance is a modern insurance brand that blends digital convenience with personalized
+                        service, offering coverage for home, car, business, landlord, and pet policies—all while giving
+                        back through their “policies with heart” initiative.</p>
+                      <h4>My Role:</h4>
+                      <p>Front-End Developer</p>
+                      <h4>Key Contributions:</h4>
+                      <p>Converted new promotional banner designs into fully responsive HTML/CSS and seamlessly
+                        integrated them into the existing website.</p>
+                      <div class="portfolio-links">
+                        <a href="./assets/img/portfolio/webdev-1.png" class="glightbox"><i
+                            class="bi bi-plus-lg"></i></a>
+                        <a href="https://viewinsurance.com.au/" target="_blank" title="More Details"><i
+                            class="bi bi-arrow-right"></i></a>
                       </div>
                     </div>
                   </div>
@@ -394,14 +461,25 @@
                     <img src="./assets/img/portfolio/webdev-2.png" class="img-fluid" alt="Portfolio Image"
                       loading="lazy">
                     <div class="portfolio-info">
-                      <div class="content">
-                        <p>A responsive and modern front-end website for AI Frankie, built with Handlebars.js, Tailwind
-                          CSS, HTML5, and CSS3.</p>
-                        <div class="portfolio-links">
-                          <a href="./assets/img/portfolio/webdev-2.png" class="glightbox"><i
-                              class="bi bi-plus-lg"></i></a>
-                          <a href="portfolio-details.html" title="More Details"><i class="bi bi-arrow-right"></i></a>
-                        </div>
+
+                      <h4>Description:</h4>
+                      <p>
+                        AI Frankie is an AI-powered chatbot website built to showcase intelligent conversational
+                        features, highlighting real-time responses, personalization, and seamless user interaction.
+                      </p>
+
+                      <h4>My Role:</h4>
+                      <p>Front-End Developer</p>
+
+                      <h4>Key Contributions:</h4>
+                      <p>Developed fully responsive pages with modern UI elements</p>
+
+                      <div class="portfolio-links">
+                        <a href="./assets/img/portfolio/webdev-2.png" class="glightbox"><i
+                            class="bi bi-plus-lg"></i></a>
+                        <a href="https://ramilinator.github.io/ai-frankie-website/" target="_blank"
+                          title="More Details"><i class="bi bi-arrow-right"></i></a>
+
                       </div>
                     </div>
                   </div>
@@ -412,14 +490,18 @@
                     <img src="./assets/img/portfolio/webdev-3.png" class="img-fluid" alt="Portfolio Image"
                       loading="lazy">
                     <div class="portfolio-info">
-                      <div class="content">
-                        <p>A responsive and modern front-end website for AI Frankie, built with Handlebars.js, Tailwind
-                          CSS, HTML5, and CSS3.</p>
-                        <div class="portfolio-links">
-                          <a href="./assets/img/portfolio/webdev-3.png" class="glightbox"><i
-                              class="bi bi-plus-lg"></i></a>
-                          <a href="portfolio-details.html" title="More Details"><i class="bi bi-arrow-right"></i></a>
-                        </div>
+                      <h4>Description:</h4>
+                      <p>C9 Global is a creative solutions website built to highlight digital services including web
+                        development, design, and branding.</p>
+                      <h4>My Role:</h4>
+                      <p>Front-End Developer</p>
+                      <h4>Key Contributions:</h4>
+                      <p>Developed fully responsive pages with modern UI elements</p>
+                      <div class="portfolio-links">
+                        <a href="./assets/img/portfolio/webdev-2.png" class="glightbox"><i
+                            class="bi bi-plus-lg"></i></a>
+                        <a href="https://ramilinator.github.io/c9-global/" target="_blank" title="More Details"><i
+                            class="bi bi-arrow-right"></i></a>
                       </div>
                     </div>
                   </div>
@@ -430,14 +512,12 @@
                     <img src="./assets/img/portfolio/webdesign-1.png" class="img-fluid" alt="Portfolio Image"
                       loading="lazy">
                     <div class="portfolio-info">
-                      <div class="content">
-                        <p>A responsive and modern front-end website for AI Frankie, built with Handlebars.js, Tailwind
-                          CSS, HTML5, and CSS3.</p>
-                        <div class="portfolio-links">
-                          <a href="./assets/img/portfolio/webdesign-1.png" class="glightbox"><i
-                              class="bi bi-plus-lg"></i></a>
-                          <a href="portfolio-details.html"><i class="bi bi-arrow-right"></i></a>
-                        </div>
+                      <p>Designed a responsive website concept as my official entry for the Automatiq website design
+                        contest.</p>
+                      <div class="portfolio-links">
+                        <a href="./assets/img/portfolio/webdesign-1.png" class="glightbox"><i
+                            class="bi bi-plus-lg"></i></a>
+                        <a href="#"><i class="bi bi-arrow-right"></i></a>
                       </div>
                     </div>
                   </div>
@@ -448,14 +528,13 @@
                     <img src="./assets/img/portfolio/webdesign-2.png" class="img-fluid" alt="Portfolio Image"
                       loading="lazy">
                     <div class="portfolio-info">
-                      <div class="content">
-                        <p>A responsive and modern front-end website for AI Frankie, built with Handlebars.js, Tailwind
-                          CSS, HTML5, and CSS3.</p>
-                        <div class="portfolio-links">
-                          <a href="./assets/img/portfolio/webdesign-2.png" class="glightbox"><i
-                              class="bi bi-plus-lg"></i></a>
-                          <a href="portfolio-details.html" title="More Details"><i class="bi bi-arrow-right"></i></a>
-                        </div>
+                      <p>Designed a responsive website concept as my official entry for the Father Fuel TM website
+                        design
+                        contest.</p>
+                      <div class="portfolio-links">
+                        <a href="./assets/img/portfolio/webdesign-2.png" class="glightbox"><i
+                            class="bi bi-plus-lg"></i></a>
+                        <a href="#" title="More Details"><i class="bi bi-arrow-right"></i></a>
                       </div>
                     </div>
                   </div>
@@ -466,23 +545,16 @@
                     <img src="./assets/img/portfolio/webdesign-3.png" class="img-fluid" alt="Portfolio Image"
                       loading="lazy">
                     <div class="portfolio-info">
-                      <div class="content">
-                        <p>A responsive and modern front-end website for AI Frankie, built with Handlebars.js, Tailwind
-                          CSS, HTML5, and CSS3.</p>
-                        <div class="portfolio-links">
-                          <a href="./assets/img/portfolio/webdesign-3.png" class="glightbox"><i
-                              class="bi bi-plus-lg"></i></a>
-                          <a href="portfolio-details.html" title="More Details"><i class="bi bi-arrow-right"></i></a>
-                        </div>
+                      <p>Designed a responsive website concept as my official entry for the AlignedCardio website
+                        design contest.</p>
+                      <div class="portfolio-links">
+                        <a href="./assets/img/portfolio/webdesign-3.png" class="glightbox"><i
+                            class="bi bi-plus-lg"></i></a>
+                        <a href="#" title="More Details"><i class="bi bi-arrow-right"></i></a>
                       </div>
                     </div>
                   </div>
                 </div><!-- End Portfolio Item -->
-
-
-
-
-
               </div><!-- End Portfolio Container -->
             </div>
           </div>
@@ -872,21 +944,8 @@
   <footer id="footer" class="footer accent-background">
 
     <div class="container">
-      <div class="copyright text-center ">
-        <p>© <span>Copyright</span> <strong class="px-1 sitename">DevFolio</strong> <span>All Rights Reserved</span></p>
-      </div>
-      <div class="social-links d-flex justify-content-center">
-        <a href=""><i class="bi bi-twitter-x"></i></a>
-        <a href=""><i class="bi bi-facebook"></i></a>
-        <a href=""><i class="bi bi-instagram"></i></a>
-        <a href=""><i class="bi bi-linkedin"></i></a>
-      </div>
       <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        Copyright © 2025. All Rights Reserved.
       </div>
     </div>
 
