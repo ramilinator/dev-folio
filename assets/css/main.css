@@ -2082,8 +2082,8 @@ section#about {
 .profile-img {
   position: relative;
   z-index: 2;
-  padding-top: 74px;
-  padding-right: 74px;
+  /* padding-top: 74px;
+  padding-right: 74px; */
 }
 
 .profile-img-wrapper::after {
