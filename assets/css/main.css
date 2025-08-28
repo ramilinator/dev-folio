@@ -978,26 +978,28 @@ section#about {
   }
 }
 
-.services .service-card {
-  padding: 40px 40px 40px 40px;
-  /* margin-bottom: 30px; */
+.services-card-wrapper {
+  padding: 64px;
   border: 2px solid color-mix(in srgb, var(--accent-color), transparent 90%);
+  border-radius: 32px;
+}
+
+.services .service-card {
+  padding: 32px 0;
   border-radius: 24px;
   transition: all 0.3s ease;
   overflow: hidden;
+  background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
 }
 
 .services .service-card .service-icon {
-  background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  text-align: center;
   border-radius: 10px;
-  padding: 16px;
+  padding: 32px 0;
 }
 
 .services .service-card .service-icon i {
-  font-size: 32px;
+  font-size: 92px;
   color: var(--accent-color);
   transition: all 0.3s ease;
 }
@@ -1060,7 +1062,7 @@ section#about {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: var(--surface-color);
+  /* background-color: var(--surface-color); */
   /* clip-path: polygon(70% 0, 100% 30%, 100% 100%, 0 100%, 0 0); */
   z-index: -1;
   opacity: 0;
@@ -1072,11 +1074,11 @@ section#about {
   border-color: transparent;
 }
 
-.services .service-card:hover::before {
+/* .services .service-card:hover::before {
   opacity: 1;
   visibility: visible;
   background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
-}
+} */
 
 .services .service-card:hover h3 a {
   color: var(--accent-color);
@@ -1101,9 +1103,6 @@ section#about {
 }
 
 @media (max-width: 768px) {
-  .services .service-card {
-    padding: 150px 25px 25px;
-  }
 
   .services .service-card h3 {
     font-size: 24px;
@@ -1205,14 +1204,6 @@ section#about {
 
 .skills .skill-item {
   margin-bottom: 25px;
-}
-
-.skills .skill-item-wrap {
-  display: flex;
-  gap: 16px;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 10px;
 }
 
 .skill-item-name {
