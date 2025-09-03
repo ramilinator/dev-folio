@@ -30,7 +30,6 @@
   --heading-color: #B3B3B3;
   /* Color for headings, subheadings and title throughout the website */
   --accent-color: #00ADB5;
-  --accent-color: #00BFA6;
   /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
   --surface-color: #232323;
   --surface-color: #FF6B35;
@@ -1074,11 +1073,11 @@ section#about {
   border-color: transparent;
 }
 
-/* .services .service-card:hover::before {
+.services .service-card:hover::before {
   opacity: 1;
   visibility: visible;
   background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
-} */
+}
 
 .services .service-card:hover h3 a {
   color: var(--accent-color);
