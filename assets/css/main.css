@@ -984,6 +984,7 @@ section#about {
 }
 
 .services .service-card {
+  height: 194px;
   padding: 32px 0;
   border-radius: 24px;
   transition: all 0.3s ease;
@@ -998,9 +999,13 @@ section#about {
 }
 
 .services .service-card .service-icon i {
-  font-size: 92px;
+  font-size: 64px;
   color: var(--accent-color);
   transition: all 0.3s ease;
+}
+
+.services .service-card:hover .service-icon i {
+  font-size: 84px;
 }
 
 .services .service-card h3 {
@@ -1095,10 +1100,6 @@ section#about {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
-}
-
-.services .service-card:hover .service-icon i {
-  transform: scale(1.1);
 }
 
 @media (max-width: 768px) {
