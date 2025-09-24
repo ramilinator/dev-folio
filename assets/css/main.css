@@ -42,7 +42,7 @@
 :root {
   --nav-color: rgba(236, 236, 236, 0.59);
   /* The default color of the main navmenu links */
-  --nav-hover-color: #ffffff;
+  --nav-hover-color: #00ADB5;
   /* Applied to main navmenu links when they are hovered over or active */
   --nav-mobile-background-color: #393939;
   /* Used as the background color for mobile navigation menu */
