@@ -20,13 +20,13 @@
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
 
 :root {
-  --background-color: #1f1f1f;
+
   --background-color: #1C1C1C;
   /* Background color for the entire website, including individual sections */
-  --default-color: #ffffff;
+
   --default-color: #B3B3B3;
   /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #ffffff;
+
   --heading-color: #B3B3B3;
   /* Color for headings, subheadings and title throughout the website */
   --accent-color: #00ADB5;
@@ -1508,6 +1508,7 @@ section#about {
 
 .portfolio .portfolio-entry {
   position: relative;
+  padding: 16px;
   border-radius: 16px;
   overflow: hidden;
   background: var(--surface-color);
@@ -1528,21 +1529,55 @@ section#about {
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.portfolio .portfolio-entry .entry-image .entry-overlay {
-  position: absolute;
+.portfolio .portfolio-entry .entry-overlay {
+  position: relative;
   inset: 0;
-  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
-  display: flex;
-  align-items: flex-end;
-  padding: 30px;
-  opacity: 0;
-  transform: translateY(20px);
+  padding-top: 16px;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio .portfolio-entry .entry-meta {
+  font-size: 14px;
+  background: var(--default-color);
+  color: var(--surface-color);
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 8px;
+}
+
+.portfolio .portfolio-entry .entry-title {
+  margin-top: 14px;
+}
+
+.portfolio .portfolio-entry .entry-links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.portfolio .portfolio-entry .entry-links a {
+  color: var(--contrast-color);
+  background: var(--accent-color);
+  border-radius: 8px;
+  display: inline-block;
+  padding: 8px 12px;
+}
+
+.portfolio .portfolio-entry .entry-links a.disabled {
+  opacity: .5;
+  pointer-events: none;
+}
+
+.portfolio .portfolio-entry .entry-links a:hover {
+  background-color:
+    color-mix(in srgb, var(--accent-color), transparent 20%);
+  color: var(--contrast-color);
 }
 
 .portfolio .portfolio-entry .entry-image .entry-overlay .overlay-content {
   width: 100%;
-  transform: translateY(20px);
+  /* transform: translateY(20px); */
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -1578,14 +1613,14 @@ section#about {
   border-radius: 12px;
   font-size: 20px;
   transition: all 0.3s ease;
-  opacity: 0;
-  transform: translateY(20px);
+  /* opacity: 0;
+  transform: translateY(20px); */
 }
 
 .portfolio .portfolio-entry .entry-image .entry-overlay .entry-links a:hover {
   background: var(--accent-color);
   color: var(--contrast-color);
-  transform: translateY(-2px);
+  /* transform: translateY(-2px); */
 }
 
 .portfolio .portfolio-entry .entry-image .entry-overlay .entry-links a:nth-child(1) {
@@ -1600,19 +1635,19 @@ section#about {
   transform: scale(1.05);
 }
 
-.portfolio .portfolio-entry:hover .entry-image .entry-overlay {
+/* .portfolio .portfolio-entry:hover .entry-image .entry-overlay {
   opacity: 1;
   transform: translateY(0);
-}
+} */
 
-.portfolio .portfolio-entry:hover .entry-image .entry-overlay .overlay-content {
+/* .portfolio .portfolio-entry:hover .entry-image .entry-overlay .overlay-content {
   transform: translateY(0);
-}
+} */
 
-.portfolio .portfolio-entry:hover .entry-image .entry-overlay .entry-links a {
+/* .portfolio .portfolio-entry:hover .entry-image .entry-overlay .entry-links a {
   opacity: 1;
   transform: translateY(0);
-}
+} */
 
 @media (max-width: 768px) {
   .portfolio .portfolio-entry .entry-image .entry-overlay {
@@ -1677,7 +1712,7 @@ section#about {
   }
 }
 
-@media (min-width: 1200px) {
+/* @media (min-width: 1200px) {
   .portfolio .entry-overlay {
     padding: 25px;
   }
@@ -1693,7 +1728,7 @@ section#about {
   .portfolio .entry-overlay {
     padding: 20px;
   }
-}
+} */
 
 /*--------------------------------------------------------------
 # Testimonials Section
