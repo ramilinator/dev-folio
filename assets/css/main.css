@@ -715,7 +715,7 @@ section,
 }
 
 .hero .hero-content h2 .typed {
-  color: var(--accent-color);
+  color: var(--default-color);
   font-weight: 600;
 }
 
