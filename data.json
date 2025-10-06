@@ -1,0 +1,8 @@
+[
+  { "id": 1, "title": "AI Frankie - AI chatbot app website", "tag":"develop", "img": "assets/img/portfolio/ai-frankie.png", "url": "https://ramilinator.github.io/ai-frankie-website/" },
+  { "id": 2, "title": "Aligned Cardio - Landing page website design", "tag":"design", "img": "assets/img/portfolio/aligned-cardio.png" },
+  { "id": 3, "title": "Automatiq - Landing page website design", "tag":"design", "img": "assets/img/portfolio/automatiq.png" },
+  { "id": 4, "title": "C9 Global - Landing page website development", "tag":"develop", "img": "assets/img/portfolio/c9-global.png", "url": "https://ramilinator.github.io/c9-global/" },
+  { "id": 5, "title": "Faher Fuel - Landing page website design", "tag":"design",  "img": "assets/img/portfolio/father-fuel-tm.png" },
+  { "id": 6, "title": "View Insurance - Landing page website update", "tag":"develop", "img": "assets/img/portfolio/view-insurance.png", "url": "https://viewinsurance.com.au/"}
+]

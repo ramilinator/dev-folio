@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search & Filter with Handlebars</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        #results {
+            margin-top: 20px;
+        }
+
+        .item {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .loading {
+            color: gray;
+            font-style: italic;
+        }
+
+        .btn-group button {
+            margin: 5px;
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Search + Filter (Handlebars)</h2>
+
+    <!-- Search Box -->
+    <input type="text" id="searchBox" placeholder="Start typing...">
+
+    <!-- Filter Buttons -->
+    <div class="btn-group">
+        <button id="showAll">All Projects</button>
+        <button id="showType1">UI/UX</button>
+        <button id="showType2">Web Design</button>
+        <button id="showType3">Web Development</button>
+        <button id="showType4">Branding</button>
+    </div>
+
+    <!-- Results -->
+    <div id="results"></div>
+
+    <!-- Handlebars Template -->
+    <script id="results-template" type="text/x-handlebars-template">
+    {{#if this.length}}
+      {{#each this}}
+        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-{{type}}">
+              <article class="portfolio-entry">
+                <figure class="entry-image">
+                  <a href="{{img}}" class="glightbox">
+                    <img src="{{img}}" class="img-fluid" alt="" loading="lazy">
+                  </a>
+                </figure>
+                <div class="entry-overlay">
+                  <div class="overlay-content">
+                    <div class="entry-meta">{{tag}}</div>
+                    <div class="entry-links">
+                      <h3 class="entry-title">{{title}}</h3>
+                      <a class="{{#unless url}}disabled{{/unless}}" target="_blank" href={{url}}>
+                        <i class="bi bi-arrow-right"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+      {{/each}}
+    {{else}}
+      <p>No results found.</p>
+    {{/if}}
+  </script>
+
+    <!-- Handlebars -->
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.min.js"></script>
+
+    <script>
+        const searchBox = document.getElementById("searchBox");
+        const resultsDiv = document.getElementById("results");
+
+        let debounceTimer;
+        let localData = [];
+
+        // Compile Handlebars template
+        const source = document.getElementById("results-template").innerHTML;
+        const template = Handlebars.compile(source);
+
+        // Load local JSON
+        fetch("data.json")
+            .then(res => res.json())
+            .then(data => {
+                localData = data;
+                render(localData); // show all initially
+            })
+            .catch(err => {
+                console.error("Error loading JSON:", err);
+                resultsDiv.innerHTML = "<p>Could not load local data.</p>";
+            });
+
+        // Render function
+        function render(data) {
+            resultsDiv.innerHTML = template(data);
+        }
+
+        // Search function
+        function searchLocal(query) {
+            if (!query) {
+                render(localData);
+                return;
+            }
+
+            resultsDiv.innerHTML = '<p class="loading">Searching...</p>';
+
+            setTimeout(() => {
+                const filtered = localData.filter(item =>
+                    item.title.toLowerCase().includes(query.toLowerCase()) ||
+                    item.tag.toLowerCase().includes(query.toLowerCase())
+                );
+                render(filtered);
+            }, 200);
+        }
+
+        // Debounced search
+        searchBox.addEventListener("input", () => {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(() => {
+                searchLocal(searchBox.value.trim());
+            }, 300);
+        });
+
+        // Button filters
+        document.getElementById("showAll").addEventListener("click", () => render(localData));
+        document.getElementById("showType1").addEventListener("click", () => render(localData.filter(i => i.tag === "uiux")));
+        document.getElementById("showType2").addEventListener("click", () => render(localData.filter(i => i.tag === "design")));
+        document.getElementById("showType3").addEventListener("click", () => render(localData.filter(i => i.tag === "develop")));
+        document.getElementById("showType4").addEventListener("click", () => render(localData.filter(i => i.tag === "branding")));
+    </script>
+
+</body>
+
+</html>
