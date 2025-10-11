@@ -56,6 +56,7 @@
     --background-color: #FFFFFF;
     --default-color: #1C1C1C;
     --heading-color: #1C1C1C;
+    --contrast-color: #FFFFFF;
     background: var(--background-color) !important;
   }
 
@@ -1568,11 +1569,10 @@
 
   .portfolio .portfolio-entry .entry-meta {
     font-size: 14px;
-    background: var(--default-color);
-    color: var(--surface-color);
+    background: var(--accent-color);
+    color: var(--contrast-color);
     display: inline-block;
     padding: 4px 12px;
-    border-radius: 8px;
   }
 
   .portfolio .portfolio-entry .entry-title {
