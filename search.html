@@ -1,66 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search & Filter with Handlebars</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-        }
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Ramil Aoanan - Portfolio Website</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
 
-        #results {
-            margin-top: 20px;
-        }
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-        .item {
-            padding: 10px;
-            border-bottom: 1px solid #ccc;
-        }
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
 
-        .loading {
-            color: gray;
-            font-style: italic;
-        }
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
 
-        .btn-group button {
-            margin: 5px;
-            padding: 8px 12px;
-            cursor: pointer;
-        }
-    </style>
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: DevFolio
+  * Template URL: https://bootstrapmade.com/devfolio-bootstrap-portfolio-html-template/
+  * Updated: Aug 07 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
 </head>
 
 <body>
 
-    <h2>Search + Filter (Handlebars)</h2>
+  <header id="header" class="header d-flex align-items-center">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-    <!-- Search Box -->
-    <input type="text" id="searchBox" placeholder="Start typing...">
+      <a href="index.html" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1 class="sitename">ramilaoanan</h1>
+      </a>
 
-    <!-- Filter Buttons -->
-    <div class="btn-group">
-        <button id="showAll">All Projects</button>
-        <button id="showType1">UI/UX</button>
-        <button id="showType2">Web Design</button>
-        <button id="showType3">Web Development</button>
-        <button id="showType4">Branding</button>
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="#hero" class="active">Home<br></a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Skills</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
     </div>
+  </header>
 
-    <!-- Results -->
-    <div id="results"></div>
+  <main class="main">
+    <section id="portfolio" class="portfolio section light-background">
 
-    <!-- Handlebars Template -->
-    <script id="results-template" type="text/x-handlebars-template">
+      <!-- Section Title -->
+      <div class="container section-title">
+        <h2>Portfolio</h2>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+
+          <!-- Search Box -->
+
+          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="200">
+            <li id="showAll" data-filter="*" class="filter-active">
+              <i class="bi bi-grid-3x3"></i> All Projects
+            </li>
+            <li id="showType1" data-filter=".filter-ui">
+              UI/UX
+            </li>
+            <li id="showType2" data-filter=".filter-design">
+              Web Design
+            </li>
+            <li id="showType3" data-filter=".filter-development">
+              Development
+            </li>
+            <li id="showType4" data-filter=".filter-branding">
+              Branding
+            </li>
+          </ul>
+
+
+          <!-- Results -->
+          <div id="results" class="row g-4 isotope-container" data-aos="fade-up" data-aos-delay="300"></div>
+
+
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+
+
+  <!-- Filter Buttons 
+  <div class="btn-group">
+    <button id="showAll">All Projects</button>
+    <button id="showType1">UI/UX</button>
+    <button id="showType2">Web Design</button>
+    <button id="showType3">Web Development</button>
+    <button id="showType4">Branding</button>
+  </div>
+  -->
+
+  <!-- Handlebars Template -->
+  <script id="results-template" type="text/x-handlebars-template">
     {{#if this.length}}
       {{#each this}}
-        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-{{type}}">
+        <div class="col-lg-4 col-md-6 portfolio-item-wrapper isotope-item filter-{{tag}}">
               <article class="portfolio-entry">
                 <figure class="entry-image">
-                  <a href="{{img}}" class="glightbox">
-                    <img src="{{img}}" class="img-fluid" alt="" loading="lazy">
+                  <a href="{{image}}" class="glightbox">
+                    <img src="{{image}}" class="img-fluid" alt="" loading="lazy">
                   </a>
                 </figure>
                 <div class="entry-overlay">
@@ -82,70 +156,77 @@
     {{/if}}
   </script>
 
-    <!-- Handlebars -->
-    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.min.js"></script>
+  <!-- Handlebars -->
+  <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.min.js"></script>
 
-    <script>
-        const searchBox = document.getElementById("searchBox");
-        const resultsDiv = document.getElementById("results");
+  <script>
 
-        let debounceTimer;
-        let localData = [];
+    const resultsDiv = document.getElementById("results");
 
-        // Compile Handlebars template
-        const source = document.getElementById("results-template").innerHTML;
-        const template = Handlebars.compile(source);
+    let localData = [];
 
-        // Load local JSON
-        fetch("data.json")
-            .then(res => res.json())
-            .then(data => {
-                localData = data;
-                render(localData); // show all initially
-            })
-            .catch(err => {
-                console.error("Error loading JSON:", err);
-                resultsDiv.innerHTML = "<p>Could not load local data.</p>";
-            });
+    // Compile Handlebars template
+    const source = document.getElementById("results-template").innerHTML;
+    const template = Handlebars.compile(source);
 
-        // Render function
-        function render(data) {
-            resultsDiv.innerHTML = template(data);
-        }
+    // Load local JSON
+    fetch("data.json")
+      .then(res => res.json())
+      .then(data => {
+        localData = data;
+        render(localData); // show all initially
+      })
+      .catch(err => {
+        console.error("Error loading JSON:", err);
+        resultsDiv.innerHTML = "<p>Could not load local data.</p>";
+      });
 
-        // Search function
-        function searchLocal(query) {
-            if (!query) {
-                render(localData);
-                return;
-            }
+    // Main render with smooth transition
+    function render(data) {
+      const currentItems = resultsDiv.querySelectorAll(".portfolio-item-wrapper");
 
-            resultsDiv.innerHTML = '<p class="loading">Searching...</p>';
-
-            setTimeout(() => {
-                const filtered = localData.filter(item =>
-                    item.title.toLowerCase().includes(query.toLowerCase()) ||
-                    item.tag.toLowerCase().includes(query.toLowerCase())
-                );
-                render(filtered);
-            }, 200);
-        }
-
-        // Debounced search
-        searchBox.addEventListener("input", () => {
-            clearTimeout(debounceTimer);
-            debounceTimer = setTimeout(() => {
-                searchLocal(searchBox.value.trim());
-            }, 300);
+      if (currentItems.length > 0) {
+        // Step 1: Add "hidden" class to fade and shrink items smoothly
+        currentItems.forEach(item => {
+          item.classList.remove("rendered");
+          item.classList.add("hidden");
         });
 
-        // Button filters
-        document.getElementById("showAll").addEventListener("click", () => render(localData));
-        document.getElementById("showType1").addEventListener("click", () => render(localData.filter(i => i.tag === "uiux")));
-        document.getElementById("showType2").addEventListener("click", () => render(localData.filter(i => i.tag === "design")));
-        document.getElementById("showType3").addEventListener("click", () => render(localData.filter(i => i.tag === "develop")));
-        document.getElementById("showType4").addEventListener("click", () => render(localData.filter(i => i.tag === "branding")));
-    </script>
+        // Step 2: Wait for the fade-out before replacing items
+        setTimeout(() => renderNewItems(data), 200);
+      } else {
+        renderNewItems(data);
+      }
+    }
+
+    // Step 3: Render new items with organic staggered fade-in
+    function renderNewItems(data) {
+      resultsDiv.innerHTML = template(data);
+
+      const items = resultsDiv.querySelectorAll(".portfolio-item-wrapper");
+
+      // Start as initialize (invisible)
+      items.forEach(item => item.classList.add("initialize"));
+
+      // Fade in each item with random delay for organic feel
+      items.forEach(item => {
+        const randomDelay = 100; // 0.4–0.9s
+        setTimeout(() => {
+          item.classList.remove("initialize");
+          item.classList.add("rendered");
+        }, randomDelay);
+      });
+    }
+
+    // Button filters
+    document.getElementById("showAll").addEventListener("click", () => render(localData));
+    document.getElementById("showType1").addEventListener("click", () => render(localData.filter(i => i.tag === "uiux")));
+    document.getElementById("showType2").addEventListener("click", () => render(localData.filter(i => i.tag === "web design")));
+    document.getElementById("showType3").addEventListener("click", () => render(localData.filter(i => i.tag === "develop")));
+    document.getElementById("showType4").addEventListener("click", () => render(localData.filter(i => i.tag === "branding")));
+
+  </script>
+
 
 </body>
 

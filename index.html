@@ -91,11 +91,13 @@
           <div class="col-lg-6 order-2 order-lg-1">
             <div class="hero-content">
               <h1 data-aos="fade-up" data-aos-delay="200">Hello, I'm <span class="highlight">Ramil Aoanan</span></h1>
-              <p data-aos="fade-up" data-aos-delay="300"><span class="typed"
-                  data-typed-items="I am a web developer. I specialize in front-end web development."></span></p>
-              <div class="hero-actions" data-aos="fade-up" data-aos-delay="500">
-                <a href="#" class="btn btn-primary">Get In Touch:</a>
-                <a href="#" class="btn btn-outline dark-background">ramilaoanan@gmail.com</a>
+              <p>I am a web developer. I specialize in front-end web
+                development.</p>
+              <div data-aos="fade-up" data-aos-delay="500">
+                <div class="slider-track">
+                  <a href="#" class="btn btn-primary btn-slider">Get in Touch <i class="bi bi-send"></i></a>
+                  <span class="hero-email">ramilaoanan@gmail.com</span>
+                </div>
               </div>
               <!--
               <div class="social-links" data-aos="fade-up" data-aos-delay="600">
@@ -108,12 +110,13 @@
             </div>
           </div>
           <div class="col-lg-6 order-1 order-lg-2">
-            <div class="hero-image" data-aos="zoom-in" data-aos-delay="300">
+            <!--  <div class="hero-image" data-aos="zoom-in" data-aos-delay="300">
               <div class="image-wrapper">
                 <img src="assets/img/main.jpg" class="img-fluid" alt="">
               </div>
               </img>
-            </div>
+            </div> -->
+
           </div>
         </div>
 
@@ -651,6 +654,22 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const track = document.querySelector(".slider-track");
+      const button = document.querySelector(".btn-slider");
+
+      button.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        // Slide button and reveal email
+        track.classList.toggle("button-slide");
+
+      });
+    });
+  </script>
+
 
 </body>
 
