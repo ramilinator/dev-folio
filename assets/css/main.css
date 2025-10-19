@@ -30,7 +30,7 @@
   --heading-color: #FFFFFF;
   ;
   /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #00ADB5;
+  --accent-color: rgb(3 199 229);
   /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
   --surface-color: #f8f8f8;
   /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
@@ -42,7 +42,7 @@
 :root {
   --nav-color: rgba(236, 236, 236, 0.59);
   /* The default color of the main navmenu links */
-  --nav-hover-color: #00ADB5;
+  --nav-hover-color: rgb(3 199 229);
   /* Applied to main navmenu links when they are hovered over or active */
   --nav-mobile-background-color: #393939;
   /* Used as the background color for mobile navigation menu */
@@ -87,6 +87,9 @@ body {
   font-style: normal;
 }
 
+p {
+  color: var(--default-color);
+}
 
 a {
   color: var(--accent-color);
@@ -671,11 +674,25 @@ section,
   position: relative;
 }
 
-.section-title h2:after {
+.section-title h2:before {
   content: "";
   position: absolute;
   display: block;
-  width: 50px;
+  width: 160px;
+  height: 1px;
+  background:
+    color-mix(in srgb, var(--default-color), transparent 60%);
+  left: 0;
+  right: 0;
+  bottom: 1px;
+  margin: auto;
+}
+
+.section-title h2::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 60px;
   height: 3px;
   background: var(--accent-color);
   left: 0;
@@ -699,7 +716,16 @@ section,
   display: flex;
   align-items: center;
   z-index: 1;
+}
 
+.hero::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  opacity: 60%;
+  z-index: -1;
 }
 
 .hero::after {
@@ -708,9 +734,9 @@ section,
   width: 100%;
   height: 100%;
   background: url(/assets/img/visual2.jpg) center no-repeat;
+  background-color: var(--background-color);
   background-size: cover;
-  z-index: -1;
-  opacity: .2;
+  z-index: -2;
 }
 
 .hero-actions .btn.btn-outline {
@@ -756,7 +782,6 @@ section,
   font-size: 1.5rem;
   font-weight: 400;
   margin-bottom: 2rem;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
 }
 
 .hero .hero-content h2 .typed {
@@ -774,7 +799,6 @@ section,
   font-size: 1.1rem;
   line-height: 1.6;
   margin-bottom: 2.5rem;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
 }
 
 .hero .hero-actions {
@@ -796,14 +820,14 @@ section,
 
 .btn.btn-primary,
 .portfolio-filters li.filter-active {
-  background: var(--accent-color);
   color: var(--contrast-color);
-  border-color: var(--accent-color);
+  background: color-mix(in srgb, var(--accent-color), black 15%);
+  border-color: color-mix(in srgb, var(--accent-color), black 15%);
 }
 
 .btn.btn-primary:hover {
-  background: color-mix(in srgb, var(--accent-color), black 15%);
-  border-color: color-mix(in srgb, var(--accent-color), black 15%);
+  background: var(--accent-color);
+  border-color: var(--accent-color);
   transform: translateY(-2px);
 }
 
@@ -2530,6 +2554,7 @@ section,
   z-index: 2;
   display: flex;
   justify-content: center;
+  align-items: center;
   padding: 0;
   margin-right: 15%;
   margin-bottom: 1rem;
@@ -2540,7 +2565,7 @@ section,
   box-sizing: content-box;
   flex: 0 1 auto;
   width: 30px;
-  height: 3px;
+  height: 1px;
   padding: 0;
   margin-right: 3px;
   margin-left: 3px;
@@ -2556,5 +2581,6 @@ section,
 }
 
 .carousel-indicators .active {
+  height: 3px;
   opacity: 1;
 }
