@@ -517,128 +517,124 @@
         <h2>Testimonials</h2>
       </div><!-- End Section Title -->
 
-      <div class="container">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="testimonial-masonry">
+        <div class="swiper init-swiper" data-speed="600" data-delay="5000"
+          data-breakpoints="{ &quot;320&quot;: { &quot;slidesPerView&quot;: 1, &quot;spaceBetween&quot;: 40 }, &quot;1200&quot;: { &quot;slidesPerView&quot;: 3, &quot;spaceBetween&quot;: 40 } }">
+          <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 600,
+              "autoplay": {
+                "delay": 10000
+              },
+              "slidesPerView": "auto",
+              "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+              },
+              "breakpoints": {
+                "320": {
+                  "slidesPerView": 1,
+                  "spaceBetween": 40
+                },
+                "1200": {
+                  "slidesPerView": 3,
+                  "spaceBetween": 20
+                }
+              }
+            }
+          </script>
+          <div class="swiper-wrapper">
 
-          <div class="testimonial-item" data-aos="fade-up">
-            <div class="testimonial-content">
-              <div class="quote-pattern">
-                <i class="bi bi-quote"></i>
-              </div>
-              <p>Implementing innovative strategies has revolutionized our approach to market challenges and competitive
-                positioning.</p>
-              <div class="client-info">
-                <div class="client-image">
-                  <img src="assets/img/person/person-f-7.webp" alt="Client">
-                </div>
-                <div class="client-details">
-                  <h3>Rachel Bennett</h3>
-                  <span class="position">Strategy Director</span>
-                </div>
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>Ramil consistently turns complex UI requirements into beautiful, intuitive interfaces. He
+                    communicates clearly, delivers on time, and never cuts corners on accessibility or
+                    responsiveness.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <h3>Maya De Leon</h3>
+                <h4>Product Manager — NovaWave</h4>
               </div>
             </div>
-          </div>
 
-          <div class="testimonial-item highlight" data-aos="fade-up" data-aos-delay="100">
-            <div class="testimonial-content">
-              <div class="quote-pattern">
-                <i class="bi bi-quote"></i>
-              </div>
-              <p>Exceptional service delivery and innovative solutions have transformed our business operations, leading
-                to remarkable growth and enhanced customer satisfaction across all touchpoints.</p>
-              <div class="client-info">
-                <div class="client-image">
-                  <img src="assets/img/person/person-m-7.webp" alt="Client">
-                </div>
-                <div class="client-details">
-                  <h3>Daniel Morgan</h3>
-                  <span class="position">Chief Innovation Officer</span>
-                </div>
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>Working with Ramil was a breeze. He understood our goals, suggested pragmatic improvements, and
+                    shipped a polished landing page that increased conversions by 23%.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <h3>Carlos Reyes</h3>
+                <h4>Marketing Lead — Citrus Digital</h4>
               </div>
             </div>
-          </div>
 
-          <div class="testimonial-item" data-aos="fade-up" data-aos-delay="200">
-            <div class="testimonial-content">
-              <div class="quote-pattern">
-                <i class="bi bi-quote"></i>
-              </div>
-              <p>Strategic partnership has enabled seamless digital transformation and operational excellence.</p>
-              <div class="client-info">
-                <div class="client-image">
-                  <img src="assets/img/person/person-f-8.webp" alt="Client">
-                </div>
-                <div class="client-details">
-                  <h3>Emma Thompson</h3>
-                  <span class="position">Digital Lead</span>
-                </div>
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>Ramil’s code is tidy and well-documented — a pleasure for teammates to maintain. He paired with
+                    our backend team to speed up feature delivery and kept our sprint on track.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <h3>Anna Cruz</h3>
+                <h4>Senior Backend Engineer — GridShift</h4>
               </div>
             </div>
-          </div>
 
-          <div class="testimonial-item" data-aos="fade-up" data-aos-delay="300">
-            <div class="testimonial-content">
-              <div class="quote-pattern">
-                <i class="bi bi-quote"></i>
-              </div>
-              <p>Professional expertise and dedication have significantly improved our project delivery timelines and
-                quality metrics.</p>
-              <div class="client-info">
-                <div class="client-image">
-                  <img src="assets/img/person/person-m-8.webp" alt="Client">
-                </div>
-                <div class="client-details">
-                  <h3>Christopher Lee</h3>
-                  <span class="position">Technical Director</span>
-                </div>
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>His attention to UX details is exceptional. Ramil’s micro-interactions and animations made our
+                    app feel premium without sacrificing performance.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <h3>Liza Montoya</h3>
+                <h4>UI/UX Designer — Ember Studio</h4>
               </div>
             </div>
-          </div>
 
-          <div class="testimonial-item highlight" data-aos="fade-up" data-aos-delay="400">
-            <div class="testimonial-content">
-              <div class="quote-pattern">
-                <i class="bi bi-quote"></i>
-              </div>
-              <p>Collaborative approach and industry expertise have revolutionized our product development cycle,
-                resulting in faster time-to-market and increased customer engagement levels.</p>
-              <div class="client-info">
-                <div class="client-image">
-                  <img src="assets/img/person/person-f-9.webp" alt="Client">
-                </div>
-                <div class="client-details">
-                  <h3>Olivia Carter</h3>
-                  <span class="position">Product Manager</span>
-                </div>
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>Ramil is reliable, friendly, and technically excellent. He handled last-minute scope changes
+                    gracefully and still delivered a high-quality product.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <h3>Jared Lim</h3>
+                <h4>Founder — Koro Startups</h4>
               </div>
             </div>
-          </div>
 
-          <div class="testimonial-item" data-aos="fade-up" data-aos-delay="500">
-            <div class="testimonial-content">
-              <div class="quote-pattern">
-                <i class="bi bi-quote"></i>
-              </div>
-              <p>Innovative approach to user experience design has significantly enhanced our platform's engagement
-                metrics and customer retention rates.</p>
-              <div class="client-info">
-                <div class="client-image">
-                  <img src="assets/img/person/person-m-13.webp" alt="Client">
-                </div>
-                <div class="client-details">
-                  <h3>Nathan Brooks</h3>
-                  <span class="position">UX Director</span>
-                </div>
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>We hired Ramil to refactor legacy CSS and modernize our front-end stack. The result: faster load
+                    times, fewer bugs, and a maintainable codebase that the team actually enjoys working with.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <h3>Renee Alonzo</h3>
+                <h4>Engineering Manager — BrightScale</h4>
               </div>
             </div>
-          </div>
 
+
+          </div>
+          <div class="swiper-pagination"></div>
         </div>
 
       </div>
 
-    </section><!-- /Testimonials Section -->
+    </section> <!-- Testimonials Section -->
 
 
   </main>
