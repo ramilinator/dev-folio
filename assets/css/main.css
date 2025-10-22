@@ -652,6 +652,7 @@ section,
   padding: 60px 0;
   scroll-margin-top: 92px;
   overflow: clip;
+  min-height: 100vh;
 }
 
 @media (max-width: 1199px) {
