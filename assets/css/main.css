@@ -1576,39 +1576,9 @@ section,
   list-style: none;
 }
 
-/* .portfolio .portfolio-filters li {
-  font-size: 15px;
-  font-weight: 500;
-  padding: 12px 25px;
-  cursor: pointer;
-  background: var(--surface-color);
-  color: var(--default-color);
-  border-radius: 30px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  transition: all 0.3s ease;
-} */
-
-/* .portfolio .portfolio-filters li i {
-  font-size: 1.1em;
-  transition: transform 0.3s ease;
-} */
-
-/* .portfolio .portfolio-filters li:hover {
-  color: var(--accent-color);
-  transform: translateY(-2px);
-  background: color-mix(in srgb, var(--accent-color), transparent 92%);
-} */
-
 .portfolio .portfolio-filters li:hover i {
   transform: scale(1.1);
 }
-
-/* .portfolio .portfolio-filters li.filter-active {
-  background: var(--accent-color);
-  color: var(--contrast-color);
-} */
 
 @media (max-width: 768px) {
   .portfolio .portfolio-filters {
@@ -1623,11 +1593,9 @@ section,
 
 .portfolio .portfolio-entry {
   position: relative;
-  padding: 16px;
-  border-radius: 16px;
   overflow: hidden;
-  background-color: var(--contrast-color);
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 92%);
+  background: var(--surface-color);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 20px;
 }
 
 .portfolio .portfolio-entry .entry-image {
@@ -1645,35 +1613,37 @@ section,
 .portfolio .portfolio-entry .entry-overlay {
   position: relative;
   inset: 0;
-  padding-top: 16px;
+  padding: 24px;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio .portfolio-entry .entry-meta {
   font-size: 14px;
-  background: var(--accent-color);
-  color: var(--contrast-color);
+  color:
+    color-mix ↳ color-mix(in srgb, #212529, transparent 40%) ↳ #21252999 (in srgb, var(--default-color), transparent 40%);
   display: inline-block;
-  padding: 4px 12px;
+  padding: 4px 10px;
+  font-size: 12px;
+  line-height: 1;
+  border-radius: 999px;
+  background-color:
+    color-mix(in srgb, var(--accent-color), transparent 85%);
 }
 
 .portfolio .portfolio-entry .entry-title {
   margin-top: 14px;
+  max-width: 300px;
+
 }
 
-.portfolio .portfolio-entry .entry-links {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-}
 
 .portfolio .portfolio-entry .entry-links a {
-  color: var(--contrast-color);
-  background: var(--accent-color);
+  color:
+    color-mix(in srgb, var(--default-color), transparent 40%);
+  border: 0;
   border-radius: 8px;
+  padding: 0;
   display: inline-block;
-  padding: 8px 12px;
 }
 
 .portfolio .portfolio-entry .entry-links a.disabled {
@@ -1682,9 +1652,7 @@ section,
 }
 
 .portfolio .portfolio-entry .entry-links a:hover {
-  background-color:
-    color-mix(in srgb, var(--accent-color), transparent 20%);
-  color: var(--contrast-color);
+  color: var(--accent-color);
 }
 
 .portfolio .portfolio-entry .entry-image .entry-overlay .overlay-content {
@@ -1747,20 +1715,6 @@ section,
   transform: scale(1.05);
 }
 
-/* .portfolio .portfolio-entry:hover .entry-image .entry-overlay {
-  opacity: 1;
-  transform: translateY(0);
-} */
-
-/* .portfolio .portfolio-entry:hover .entry-image .entry-overlay .overlay-content {
-  transform: translateY(0);
-} */
-
-/* .portfolio .portfolio-entry:hover .entry-image .entry-overlay .entry-links a {
-  opacity: 1;
-  transform: translateY(0);
-} */
-
 @media (max-width: 768px) {
   .portfolio .portfolio-entry .entry-image .entry-overlay {
     padding: 20px;
@@ -1779,7 +1733,7 @@ section,
 }
 
 .portfolio .portfolio-item .entry-image {
-  aspect-ratio: 4/3;
+  aspect-ratio: 5/3;
 }
 
 @media (min-width: 1200px) {
@@ -1823,24 +1777,6 @@ section,
     padding-right: 15px;
   }
 }
-
-/* @media (min-width: 1200px) {
-  .portfolio .entry-overlay {
-    padding: 25px;
-  }
-}
-
-@media (min-width: 992px) and (max-width: 1199px) {
-  .portfolio .entry-overlay {
-    padding: 20px;
-  }
-}
-
-@media (max-width: 991px) {
-  .portfolio .entry-overlay {
-    padding: 20px;
-  }
-} */
 
 
 /*--------------------------------------------------------------
@@ -2684,12 +2620,13 @@ section,
   color: color-mix(in srgb, var(--default-color), transparent 50%);
 }
 
-.recent-blog-postst .post-item hr {
+hr {
   color: color-mix(in srgb, var(--default-color), transparent 80%);
   margin: 20px 0;
 }
 
-.recent-blog-postst .post-item .readmore {
+.readmore,
+.seemore {
   display: flex;
   align-items: center;
   font-weight: 600;
