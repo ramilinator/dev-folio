@@ -637,117 +637,135 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Recent Blog Posts</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        <p>Stay updated with my latest insights, tutorials, and thoughts on web development and design.</p>
       </div><!-- End Section Title -->
 
       <div class="container">
 
-        <div class="row gy-5">
+        <div id="blog-posts" class="blog-grid"></div>
 
-          <div class="col-xl-4 col-md-6">
-            <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="100">
+        <style>
+          .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 40px auto;
+            font-family: system-ui, sans-serif;
+          }
 
-              <div class="post-img position-relative overflow-hidden">
-                <img src="assets/img/blog/blog-post-1.webp" class="img-fluid" alt="">
-                <span class="post-date">December 12</span>
-              </div>
+          .blog-card {
+            background: #f5f5f5;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            transition: transform .2s ease;
+          }
 
-              <div class="post-content d-flex flex-column">
+          .blog-card:hover {
+            transform: translateY(-5px);
+          }
 
-                <h3 class="post-title">Eum ad dolor et. Autem aut fugiat debitis</h3>
+          .blog-image {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+          }
 
-                <div class="meta d-flex align-items-center">
-                  <div class="d-flex align-items-center">
-                    <i class="bi bi-person"></i> <span class="ps-2">Julia Parker</span>
-                  </div>
-                  <span class="px-3 text-black-50">/</span>
-                  <div class="d-flex align-items-center">
-                    <i class="bi bi-folder2"></i> <span class="ps-2">Politics</span>
-                  </div>
-                </div>
+          .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
 
-                <hr>
+          .blog-date {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            background: #00bcd4;
+            color: #fff;
+            padding: 6px 12px;
+            font-size: 12px;
+            font-weight: 600;
+            border-radius: 3px;
+          }
 
-                <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i
-                    class="bi bi-arrow-right"></i></a>
+          .blog-content {
+            padding: 24px;
+          }
 
-              </div>
+          .blog-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin: 0 0 12px;
+            color: #222;
+          }
 
-            </div>
-          </div><!-- End post item -->
+          .blog-meta {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 16px;
+          }
 
-          <div class="col-xl-4 col-md-6">
-            <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="200">
+          .blog-divider {
+            height: 1px;
+            background: #ddd;
+            margin: 12px 0 18px;
+          }
 
-              <div class="post-img position-relative overflow-hidden">
-                <img src="assets/img/blog/blog-post-2.webp" class="img-fluid" alt="">
-                <span class="post-date">July 17</span>
-              </div>
+          .blog-readmore {
+            color: #00bcd4;
+            text-decoration: none;
+            font-weight: 500;
+          }
+        </style>
 
-              <div class="post-content d-flex flex-column">
+        <script>
+          fetch('https://public-api.wordpress.com/wp/v2/sites/ramilaoanan.wordpress.com/posts?per_page=3&_embed')
+            .then(res => res.json())
+            .then(posts => {
+              const container = document.getElementById('blog-posts');
 
-                <h3>Et repellendus molestiae qui est sed omnis</h3>
+              posts.forEach(post => {
+                const img = post._embedded?.['wp:featuredmedia']?.[0]?.source_url || '';
+                const date = new Date(post.date);
 
-                <div class="meta d-flex align-items-center">
-                  <div class="d-flex align-items-center">
-                    <i class="bi bi-person"></i> <span class="ps-2">Mario Douglas</span>
-                  </div>
-                  <span class="px-3 text-black-50">/</span>
-                  <div class="d-flex align-items-center">
-                    <i class="bi bi-folder2"></i> <span class="ps-2">Sports</span>
-                  </div>
-                </div>
+                const formattedDate = date.toLocaleDateString('en-US', {
+                  month: 'long',
+                  day: '2-digit'
+                }).toUpperCase();
 
-                <hr>
+                const article = document.createElement('div');
+                article.className = 'blog-card';
 
-                <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i
-                    class="bi bi-arrow-right"></i></a>
-
-              </div>
-
-            </div>
-          </div><!-- End post item -->
-
-          <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="post-item position-relative h-100">
-
-              <div class="post-img position-relative overflow-hidden">
-                <img src="assets/img/blog/blog-post-3.webp" class="img-fluid" alt="">
-                <span class="post-date">September 05</span>
-              </div>
-
-              <div class="post-content d-flex flex-column">
-
-                <h3>Quia assumenda est et veritati tirana ploder</h3>
-
-                <div class="meta d-flex align-items-center">
-                  <div class="d-flex align-items-center">
-                    <i class="bi bi-person"></i> <span class="ps-2">Lisa Hunter</span>
-                  </div>
-                  <span class="px-3 text-black-50">/</span>
-                  <div class="d-flex align-items-center">
-                    <i class="bi bi-folder2"></i> <span class="ps-2">Economics</span>
-                  </div>
-                </div>
-
-                <hr>
-
-                <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i
-                    class="bi bi-arrow-right"></i></a>
-
-              </div>
-
-            </div>
-          </div><!-- End post item -->
-
+                article.innerHTML = `
+        <div class="blog-image">
+          <img src="${img}" alt="">
+          <div class="blog-date">${formattedDate}</div>
         </div>
 
+        <div class="blog-content">
+          <h3 class="blog-title">${post.title.rendered}</h3>
+
+          <div class="blog-meta">
+            👤 ${post._embedded.author?.[0]?.name || 'Admin'}
+          </div>
+
+          <div class="blog-divider"></div>
+
+          <a class="blog-readmore" href="${post.link}" target="_blank">
+            Read More →
+          </a>
+        </div>
+      `;
+
+                container.appendChild(article);
+              });
+            });
+        </script>
       </div>
 
     </section><!-- /Recent Blog Postst Section -->
-
-
-
 
   </main>
 
