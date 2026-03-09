@@ -1649,7 +1649,7 @@ section,
 .portfolio .portfolio-entry {
   position: relative;
   overflow: hidden;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 20px;
+  border: 1px solid #323434;
   border-radius: 8px;
 }
 
@@ -1673,16 +1673,7 @@ section,
 }
 
 .portfolio .portfolio-entry .entry-meta {
-  font-size: 14px;
-  color:
-    color-mix ↳ color-mix(in srgb, #212529, transparent 40%) ↳ #21252999 (in srgb, var(--default-color), transparent 40%);
-  display: inline-block;
-  padding: 4px 10px;
   font-size: 12px;
-  line-height: 1;
-  border-radius: 999px;
-  background-color:
-    color-mix(in srgb, var(--accent-color), transparent 85%);
 }
 
 .portfolio .portfolio-entry .entry-title {
@@ -2502,7 +2493,6 @@ section,
   min-height: 100vh;
   padding: 0;
   margin: 0 auto;
-  background-color: var(--background-color);
   position: relative;
 
 }
@@ -2515,6 +2505,8 @@ section,
   height: 100%;
   object-fit: cover;
   z-index: 1;
+  filter: grayscale(1);
+  opacity: .7;
 }
 
 .about .carousel-item {
