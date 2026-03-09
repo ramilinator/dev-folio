@@ -875,7 +875,7 @@ section,
   font-weight: 600;
   text-decoration: none;
   transition: all 0.3s ease;
-  border: 2px solid;
+  border: 1px solid var(--surface-color);
   cursor: pointer;
 }
 
@@ -888,7 +888,6 @@ section,
 
 .btn.btn-primary:hover {
   background: var(--accent-color);
-  border-color: var(--accent-color);
   transform: translateY(-2px);
 }
 
@@ -896,7 +895,10 @@ section,
 .portfolio-filters li {
   background: transparent;
   color: var(--accent-color);
-  border-color: var(--accent-color);
+}
+
+.portfolio-filters li:hover {
+  border: 1px solid var(--accent-color);
 }
 
 .btn.btn-outline:hover {
@@ -1282,7 +1284,7 @@ section,
   border-radius: 24px;
   transition: all 0.3s ease;
   overflow: hidden;
-  background-color: color-mix(in srgb, var(--surface-color), transparent 50%);
+  border: 1px solid var(--surface-color);
 }
 
 .services .service-card .service-icon {
@@ -1326,22 +1328,6 @@ section,
   margin-bottom: 0;
 }
 
-.services .service-card .card-action {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 80px;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--accent-color);
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(20px);
-  transition: all 0.3s ease;
-}
-
 .services .service-card .card-action i {
   font-size: 24px;
   color: var(--contrast-color);
@@ -1352,29 +1338,14 @@ section,
   transform: rotate(45deg);
 }
 
-.services .service-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  /* background-color: var(--surface-color); */
-  /* clip-path: polygon(70% 0, 100% 30%, 100% 100%, 0 100%, 0 0); */
-  z-index: -1;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-}
-
 .services .service-card:hover {
-  border-color: transparent;
+  border-color: var(--accent-color);
 }
 
 .services .service-card:hover::before {
   opacity: 1;
   visibility: visible;
-  background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+  background-color: var(--accent-color);
 }
 
 .services .service-card:hover h3 a {
@@ -1648,7 +1619,7 @@ section,
 .portfolio .portfolio-entry {
   position: relative;
   overflow: hidden;
-  border: 1px solid #323434;
+  border: 1px solid var(--surface-color);
   border-radius: 8px;
 }
 
