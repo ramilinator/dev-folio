@@ -2678,10 +2678,9 @@ hr {
 }
 
 .blog-card {
-  background: var(--background-color);
+  border: 1px solid var(--surface-color);
   border-radius: 6px;
   overflow: hidden;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
   transition: transform .2s ease;
 }
 
