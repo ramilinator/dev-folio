@@ -66,7 +66,8 @@
   --background-color: #303433;
   --default-color: #FFFFFF;
   --heading-color: #FFFFFF;
-  background: var(--surface-color) !important;
+  background-color:
+    color-mix(in srgb, var(--surface-color), transparent 50%);
   position: relative;
   border: none !important;
 }
@@ -116,7 +117,7 @@ body::after {
   background: url(/assets/img/pattern.png) 0 0 repeat;
   background-size: auto;
   z-index: -1;
-  opacity: .5;
+  opacity: .3;
 }
 
 
@@ -180,7 +181,7 @@ h6 {
 }
 
 .scrolled .header .logo h1 {
-  color: var(--heading-color);
+  color: var(--contrast-color);
 }
 
 .header .btn-getstarted,
@@ -265,7 +266,7 @@ h6 {
   }
 
   .scrolled .navmenu a {
-    color: var(--nav-color);
+    color: var(--contrast-color);
   }
 
   .navmenu a i,
@@ -1282,7 +1283,7 @@ section,
   border-radius: 24px;
   transition: all 0.3s ease;
   overflow: hidden;
-  background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+  background-color: color-mix(in srgb, var(--surface-color), transparent 50%);
 }
 
 .services .service-card .service-icon {
@@ -1293,7 +1294,7 @@ section,
 
 .services .service-card .service-icon i {
   font-size: 64px;
-  color: var(--accent-color);
+  color: var(--default-color);
   transition: all 0.3s ease;
 }
 
@@ -1845,6 +1846,7 @@ section,
   background: color-mix(in srgb, var(--default-color), transparent 97%);
   box-sizing: content-box;
   padding: 20px 20px 40px;
+  border-radius: 8px;
 }
 
 .testimonials .testimonial-item .testimonial-img {
