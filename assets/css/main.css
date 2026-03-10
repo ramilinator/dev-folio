@@ -517,7 +517,6 @@ h6 {
 --------------------------------------------------------------*/
 .footer {
   color: var(--default-color);
-  background-color: var(--background-color);
   font-size: 14px;
   padding: 40px 0;
   position: relative;
@@ -842,7 +841,7 @@ section,
   font-weight: 600;
   text-decoration: none;
   transition: all 0.3s ease;
-  border: 1px solid var(--surface-color);
+  border: 1px solid var(--default-color);
   cursor: pointer;
 }
 
@@ -861,7 +860,7 @@ section,
 .btn.btn-outline,
 .portfolio-filters li {
   background: transparent;
-  color: var(--accent-color);
+  color: var(--default-color);
 }
 
 .portfolio-filters li:hover {
