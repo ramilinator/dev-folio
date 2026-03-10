@@ -33,6 +33,7 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/hero.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: DevFolio
@@ -44,6 +45,7 @@
 </head>
 
 <body class="index-page">
+  <canvas id="particles"></canvas>
 
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
@@ -72,43 +74,63 @@
   <main class="main">
 
     <!-- Hero Section -->
-    <section id="hero" class="hero pattern-bg">
+    <section id="hero" class="hero">
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
         <div class="row gy-4 align-items-center">
           <div class="col-lg-6 order-2 order-lg-1">
-            <div class="hero-content">
-              <h1 data-aos="fade-up" data-aos-delay="200">Hello, I'm <span class="highlight">Ramil E. Aoanan</span>
+            <div class="hero-content hero-text">
+              <h1>Hello, I'm <span class="highlight">Ramil</span><br>
+                <span class="highlight">Aoanan</span>
               </h1>
-              <p>I am a web developer. I specialize in front-end web
-                development.</p>
-              <div data-aos="fade-up" data-aos-delay="500">
-                <div class="slider-track">
-                  <a href="#" class="btn btn-primary btn-slider">Get in Touch <i class="bi bi-arrow-right"></i></a>
-                  <span class="hero-email">ramilaoanan@gmail.com</span>
-                </div>
-              </div>
-              <!--
-              <div class="social-links" data-aos="fade-up" data-aos-delay="600">
-                <a href="#"><i class="bi bi-twitter"></i></a>
-                <a href="#"><i class="bi bi-linkedin"></i></a>
-                <a href="#"><i class="bi bi-github"></i></a>
-                <a href="#"><i class="bi bi-dribbble"></i></a>
-              </div>
-              -->
-            </div>
-          </div>
-          <div class="col-lg-6 order-1 order-lg-2">
-            <div class="hero-image" data-aos="zoom-in" data-aos-delay="300">
-              <div class="image-wrapper icon">
-                <img src="assets/img/me.png" class="img-fluid" alt="">
-              </div>
-              </img>
+
+              <p class="subtitle">
+                <span id="typing"></span>
+                <span class="cursor"></span>
+              </p>
+
+              <button>Get in Touch →</button>
             </div>
 
           </div>
+          <div class="col-lg-6 order-1 order-lg-2">
+            <div class="hero-image" data-aos="zoom-in" data-aos-delay="300">
+              <div class="image-wrapper">
+                <img src="assets/img/me.png" class="img-fluid" alt="">
+                <div class="code-window">
+                  <div class="window-header">
+                    <div class="dot red"></div>
+                    <div class="dot yellow"></div>
+                    <div class="dot green"></div>
+                  </div>
+
+                  <div class="code">
+                    const developer = {<br>
+                    &nbsp;&nbsp;name: "Ramil Aoanan",<br>
+                    &nbsp;&nbsp;role: "Frontend Developer",<br>
+                    &nbsp;&nbsp;skills: ["HTML","CSS","JavaScript","React"],<br>
+                    &nbsp;&nbsp;passion: "Building beautiful web apps"<br>
+                    &nbsp;&nbsp;contact: "ramilaoanan@gmail.com"<br>
+                    };
+                  </div>
+                </div>
+              </div>
+              <div class="icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg">
+              </div>
+              <div class="icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg">
+              </div>
+              <div class="icon"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"></div>
+              <div class="icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg">
+              </div>
+
+            </div>
+
+          </div>
+
         </div>
+
 
       </div>
 
@@ -713,6 +735,73 @@
 
       });
     });
+  </script>
+
+  <script>
+
+    /* TYPING */
+    const text = "I am a web developer. I specialize in front-end web development.";
+    let index = 0;
+
+    function type() {
+      if (index < text.length) {
+        document.getElementById("typing").innerHTML += text.charAt(index);
+        index++;
+        setTimeout(type, 35);
+      }
+    }
+
+    type();
+
+    /* PARTICLES */
+    const canvas = document.getElementById("particles");
+    const ctx = canvas.getContext("2d");
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let particlesArray = [];
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2;
+        this.speedX = (Math.random() - .5) * 0.5;
+        this.speedY = (Math.random() - .5) * 0.5;
+      }
+
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+      }
+
+      draw() {
+        ctx.fillStyle = "#00e0ff";
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    function initParticles() {
+      for (let i = 0; i < 80; i++) {
+        particlesArray.push(new Particle());
+      }
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particlesArray.forEach(p => {
+        p.update();
+        p.draw();
+      });
+      requestAnimationFrame(animateParticles);
+    }
+
+    initParticles();
+    animateParticles();
+
   </script>
 
 

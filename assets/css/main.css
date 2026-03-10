@@ -21,7 +21,7 @@
 
 :root {
 
-  --background-color: #1E1E1E;
+  --background-color: #0f1115;
   /* Background color for the entire website, including individual sections */
 
   --default-color: #B3B3B3;
@@ -894,11 +894,12 @@ section,
   max-width: 450px;
   margin: 0 auto;
   margin-bottom: -24px;
-  opacity: .8;
+  z-index: 1;
 }
 
 .image-wrapper img {
   transition: transform 0.3s ease;
+  opacity: .5;
 }
 
 .hero-image .image-wrapper img:hover {
