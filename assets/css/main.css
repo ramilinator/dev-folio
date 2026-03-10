@@ -32,9 +32,9 @@
   /* Color for headings, subheadings and title throughout the website */
   --accent-color: rgb(3 199 229);
   /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-  --surface-color: #303433;
+  --surface-color: #303434;
   /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
-  --contrast-color: #303434;
+  --contrast-color: #FFFFFF;
 
 }
 
@@ -55,21 +55,18 @@
 }
 
 .light-background {
-  --background-color: #f8f8f8;
-  --default-color: #B3B3B3;
-  --heading-color: #252525;
-  --contrast-color: #FFFFFF;
-  background: var(--background-color) !important;
+  background: var(--background-color);
 }
 
 .dark-background {
-  --background-color: #303433;
-  --default-color: #B3B3B3;
-  --heading-color: #FFFFFF;
+  background: var(--background-color);
+}
+
+.surface {
   background-color:
     color-mix(in srgb, var(--surface-color), transparent 50%);
   position: relative;
-  border: none !important;
+  border: none;
 }
 
 .pattern-bg {
@@ -98,6 +95,11 @@
 /*--------------------------------------------------------------
 # General Styling & Shared Classes
 --------------------------------------------------------------*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   position: relative;
   color: var(--default-color);
@@ -155,8 +157,6 @@ h6 {
 # Global Header
 --------------------------------------------------------------*/
 .header {
-  color: var(--default-color);
-  background-color: var(--background-color);
   padding: 15px 0;
   transition: all 0.5s;
   z-index: 997;
@@ -217,16 +217,11 @@ h6 {
   }
 }
 
-/* Index Page Header
-------------------------------*/
-.index-page .header {
-  --background-color: rgba(255, 255, 255, 0);
-}
-
 /* Index Page Header on Scroll
 ------------------------------*/
 .index-page.scrolled .header {
-  background-color: var(--surface-color) !important;
+  background-color:
+    color-mix(in srgb, var(--surface-color), transparent 15%);
 }
 
 
@@ -263,10 +258,6 @@ h6 {
     justify-content: space-between;
     white-space: nowrap;
     transition: 0.3s;
-  }
-
-  .scrolled .navmenu a {
-    color: var(--contrast-color);
   }
 
   .navmenu a i,
@@ -416,7 +407,7 @@ h6 {
     padding: 10px 0;
     margin: 0;
     border-radius: 6px;
-    background-color: var(--nav-mobile-background-color);
+    background-color: var(--surface-color);
     overflow-y: auto;
     transition: 0.3s;
     z-index: 9998;
@@ -425,7 +416,7 @@ h6 {
 
   .navmenu a,
   .navmenu a:focus {
-    color: var(--nav-dropdown-color);
+    color: var(--contrast-color);
     padding: 10px 20px;
     font-family: var(--nav-font);
     font-size: 17px;
@@ -690,25 +681,11 @@ h6 {
 section,
 .section {
   color: var(--default-color);
-  /* background-color: var(--background-color); */
   padding: 60px 0;
   scroll-margin-top: 92px;
   overflow: clip;
   min-height: 100vh;
 }
-
-/* .section::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url(/assets/img/pattern.png) 0 0 repeat;
-  background-size: auto;
-  opacity: 60%;
-  z-index: -1;
-} */
 
 @media (max-width: 1199px) {
 
@@ -820,17 +797,7 @@ section,
 .hero .hero-content h1 .highlight {
   color: var(--accent-color);
   position: relative;
-}
-
-.hero .hero-content h1 .highlight::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: linear-gradient(90deg, var(--accent-color), color-mix(in srgb, var(--accent-color), transparent 50%));
-  border-radius: 2px;
+  text-decoration: underline;
 }
 
 @media (max-width: 768px) {
@@ -1044,6 +1011,7 @@ section,
 
 .slider-track.button-slide {
   width: 320px;
+  border: 1px solid var(--surface-color);
 }
 
 .slider-track .btn-slider {
@@ -2445,7 +2413,7 @@ section,
 
 #about.section {
   padding: 0;
-  margin: 0;
+  /* margin: 0; */
   overflow: hidden;
 }
 
@@ -2455,7 +2423,7 @@ section,
 }
 
 #about .about-me-wrapper {
-  padding: 84px;
+  padding: 72px;
 }
 
 .about .carousel {
