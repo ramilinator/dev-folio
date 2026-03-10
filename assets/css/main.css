@@ -109,6 +109,7 @@ body {
   font-style: normal;
 }
 
+
 body::after {
   content: '';
   position: absolute;
@@ -119,7 +120,7 @@ body::after {
   background: url(/assets/img/pattern.png) 0 0 repeat;
   background-size: auto;
   z-index: -1;
-  opacity: .3;
+  opacity: .1;
 }
 
 
