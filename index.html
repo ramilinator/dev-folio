@@ -63,6 +63,7 @@
           <li><a href="#services">Skills</a></li>
           <li><a href="#testimonials">Testimonials</a></li>
           <li><a href="#blog">Blog</a></li>
+          <li><a href="#contact">Contact</a></li>
 
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -90,7 +91,7 @@
                 <span class="cursor"></span>
               </p>
 
-              <button>Get in Touch →</button>
+              <a class="button" href="#contact"> Get in Touch → </a>
             </div>
 
           </div>
@@ -648,6 +649,37 @@
       </div>
 
     </section><!-- /Recent Blog Posts Section -->
+
+    <section id="contact">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Contact</h2>
+      </div><!-- End Section Title -->
+
+      <div class="contact-container container" data-aos="fade-up">
+
+        <div class="contact-info">
+          <h3>Let's work together</h3>
+          <p>If you'd like to collaborate or have a project in mind, feel free to send a message.</p>
+
+          <div class="contact-item">📧 ramilaoanan@gmail.com</div>
+          <div class="contact-item">🌐 github.com/ramilinator</div>
+          <div class="contact-item">📍 Philippines</div>
+        </div>
+
+        <form class="contact-form" id="contactForm" action="https://formsubmit.co/ramilaoanan@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="New Portfolio Message">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Email Address" required>
+          <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+          <button type="submit" id="sendBtn">Send Message</button>
+          <div id="formStatus" style="display:none;color:#00e0ff;font-weight:600;margin-top:8px;">Sending...</div>
+        </form>
+
+      </div>
+    </section>
 
   </main>
 
