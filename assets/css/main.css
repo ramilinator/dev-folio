@@ -901,7 +901,6 @@ section,
 
 .image-wrapper img {
   transition: transform 0.3s ease;
-  opacity: .5;
 }
 
 .hero-image .image-wrapper img:hover {
@@ -1155,7 +1154,6 @@ section,
 
 /* Wrapper */
 .services-card-wrapper {
-  padding: 64px;
   border-radius: 32px;
 }
 
@@ -2271,7 +2269,6 @@ section,
 
 #about.section {
   display: flex;
-  padding: 0;
   overflow: hidden;
   align-items: center;
   justify-content: center;
