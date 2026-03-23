@@ -181,13 +181,13 @@ button:hover {
 
 .icon:nth-child(4) {
     top: 80%;
-    right: 5%;
+    right: -5%;
     animation-delay: 3s
 }
 
 .icon:nth-child(5) {
     top: 85%;
-    right: 80%;
+    right: 90%;
     animation-delay: 3s
 }
 
