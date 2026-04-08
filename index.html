@@ -45,9 +45,9 @@
 </head>
 
 <body class="index-page">
-  <canvas id="particles"></canvas>
+  <canvas id="bg"></canvas>
 
-  <header id="header" class="header d-flex align-items-center fixed-top">
+  <header id="header" class="header">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
       <a href="index.html" class="logo d-flex align-items-center me-auto">
@@ -82,7 +82,7 @@
         <div class="row gy-4 align-items-center">
           <div class="col-lg-6 order-2 order-lg-1">
             <div class="hero-content hero-text">
-              <h1>Hello, I'm <br><span class="highlight">Ramil Aoanan</span>
+              <h1>Hello,<br>My name is <span class="highlight">Ramil</span>
               </h1>
 
               <p class="subtitle">
@@ -696,15 +696,16 @@
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+
   <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
@@ -740,57 +741,111 @@
 
     type();
 
-    /* PARTICLES */
-    const canvas = document.getElementById("particles");
-    const ctx = canvas.getContext("2d");
-
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    let particlesArray = [];
-
-    class Particle {
-      constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 2;
-        this.speedX = (Math.random() - .5) * 0.5;
-        this.speedY = (Math.random() - .5) * 0.5;
-      }
-
-      update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-      }
-
-      draw() {
-        ctx.fillStyle = "#B3B3B3";
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-      }
-    }
-
-    function initParticles() {
-      for (let i = 0; i < 80; i++) {
-        particlesArray.push(new Particle());
-      }
-    }
-
-    function animateParticles() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particlesArray.forEach(p => {
-        p.update();
-        p.draw();
-      });
-      requestAnimationFrame(animateParticles);
-    }
-
-    initParticles();
-    animateParticles();
-
   </script>
 
+  <script>
+    /* THREE.JS BACKGROUND */
+
+    const canvas = document.getElementById("bg");
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+
+    const scene = new THREE.Scene();
+    scene.fog = new THREE.FogExp2(0x05070d, 0.0009);
+
+    const camera = new THREE.PerspectiveCamera(
+      60,
+      window.innerWidth / window.innerHeight,
+      1,
+      2000
+    );
+    camera.position.z = 400;
+
+    /* LIGHTING */
+
+    const ambientLight = new THREE.AmbientLight(0x00e0ff, 0.25);
+    scene.add(ambientLight);
+
+    const keyLight = new THREE.PointLight(0x00e0ff, 2, 1200);
+    scene.add(keyLight);
+
+    /* STARFIELD */
+
+    const starGeometry = new THREE.BufferGeometry();
+    const starVertices = [];
+
+    for (let i = 0; i < 3000; i++) {
+      starVertices.push(
+        (Math.random() - 0.5) * 2000,
+        (Math.random() - 0.5) * 2000,
+        (Math.random() - 0.5) * 2000
+      );
+    }
+
+    starGeometry.setAttribute(
+      "position",
+      new THREE.Float32BufferAttribute(starVertices, 3)
+    );
+
+    const starMaterial = new THREE.PointsMaterial({
+      color: 0x00e0ff,
+      size: 2,
+      transparent: true,
+      opacity: 0.8,
+      blending: THREE.AdditiveBlending
+    });
+
+    const stars = new THREE.Points(starGeometry, starMaterial);
+    scene.add(stars);
+
+    /* MOUSE PARALLAX */
+
+    let mouseX = 0;
+    let mouseY = 0;
+
+    window.addEventListener("mousemove", (event) => {
+      mouseX = (event.clientX - window.innerWidth / 2) * 0.001;
+      mouseY = (event.clientY - window.innerHeight / 2) * 0.001;
+    });
+
+    /* ANIMATION LOOP */
+
+    function animate() {
+      requestAnimationFrame(animate);
+
+      const positions = stars.geometry.attributes.position.array;
+
+      for (let i = 2; i < positions.length; i += 3) {
+        positions[i] += 0.6;
+
+        if (positions[i] > 500) {
+          positions[i] = -2000;
+        }
+      }
+
+      stars.geometry.attributes.position.needsUpdate = true;
+
+      stars.rotation.y += 0.0004;
+
+      camera.position.x += (mouseX * 200 - camera.position.x) * 0.02;
+      camera.position.y += (-mouseY * 200 - camera.position.y) * 0.02;
+
+      keyLight.position.copy(camera.position);
+
+      renderer.render(scene, camera);
+    }
+
+    animate();
+
+    /* RESPONSIVE */
+
+    window.addEventListener("resize", () => {
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+    });
+  </script>
 
 </body>
 

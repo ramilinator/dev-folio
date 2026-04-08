@@ -157,11 +157,21 @@ h6 {
 /*--------------------------------------------------------------
 # Global Header
 --------------------------------------------------------------*/
-.header {
-  margin: 24px;
-  border-radius: 10px;
-  transition: all 0.5s;
-  z-index: 997;
+header {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1100px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
 }
 
 .header .logo {
@@ -221,10 +231,10 @@ h6 {
 
 /* Index Page Header on Scroll
 ------------------------------*/
-.index-page.scrolled .header {
+/*.index-page.scrolled .header {
   background-color:
     color-mix(in srgb, var(--surface-color), transparent 15%);
-}
+}*/
 
 
 /*--------------------------------------------------------------
@@ -2639,4 +2649,20 @@ hr {
 
 #formStatus.error {
   color: #ef4444
+}
+
+
+#bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1
+}
+
+.section-transition {
+  position: fixed;
+  inset: 0;
+  background: #05070d;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 9998
 }
