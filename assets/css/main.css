@@ -63,10 +63,11 @@
 }
 
 .surface {
-  background-color:
-    color-mix(in srgb, var(--surface-color), transparent 50%);
-  position: relative;
-  border: none;
+  background:
+    color-mix(in srgb, var(--default-color), transparent 97%);
+  box-sizing: content-box;
+  padding: 20px 20px 40px;
+  border-radius: 8px;
 }
 
 .pattern-bg {
@@ -2671,7 +2672,6 @@ hr {
 
 #projects {
   padding: 80px 10%;
-  background: #0f172a;
   color: white;
 }
 
@@ -2688,9 +2688,7 @@ hr {
 }
 
 .project-card {
-  background: #1e293b;
   padding: 20px;
-  border-radius: 12px;
   transition: 0.3s;
 }
 
