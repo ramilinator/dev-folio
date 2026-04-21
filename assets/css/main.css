@@ -421,7 +421,6 @@ header {
     padding: 10px 0;
     margin: 0;
     border-radius: 6px;
-    background-color: var(--surface-color);
     overflow-y: auto;
     transition: 0.3s;
     z-index: 9998;
@@ -495,6 +494,14 @@ header {
   .navmenu .dropdown>.dropdown-active {
     display: block;
     background-color: rgba(33, 37, 41, 0.03);
+  }
+
+  .mobile-nav-active .header {
+    height: 95vh;
+  }
+
+  .mobile-nav-active .header .logo {
+    display: none !important;
   }
 
   .mobile-nav-active {
