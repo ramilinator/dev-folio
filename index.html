@@ -263,6 +263,14 @@
 
     </section><!-- /Services Section -->
 
+
+    <section id="projects">
+      <h2 class="section-title">My GitHub Projects</h2>
+
+      <div id="projects-container" class="projects-grid"></div>
+    </section>
+
+
     <!-- Portfolio Section -->
     <section id="portfolio" class="portfolio section">
 
@@ -703,7 +711,7 @@
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
 
   <!-- Main JS File -->
@@ -844,6 +852,31 @@
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
     });
+  </script>
+
+  <script>
+    fetch("https://api.github.com/users/ramilinator/repos")
+      .then(response => response.json())
+      .then(data => {
+
+        const container = document.getElementById("projects-container");
+
+        data.forEach(repo => {
+
+          const card = document.createElement("div");
+          card.className = "project-card";
+
+          card.innerHTML = `
+        <h3>${repo.name}</h3>
+        <p>${repo.description || "No description available."}</p>
+        <a href="${repo.html_url}" target="_blank">View Repository</a>
+      `;
+
+          container.appendChild(card);
+
+        });
+
+      });
   </script>
 
 </body>
