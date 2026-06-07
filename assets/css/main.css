@@ -2722,3 +2722,25 @@ hr {
   font-weight: bold;
   font-size: 14px;
 }
+
+.project-thumbnail {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.project-links {
+  display: flex;
+  gap: 10px;
+  margin-top: 1rem;
+}
+
+.btn {
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 6px;
+  background: #333;
+  color: white;
+}
