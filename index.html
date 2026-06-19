@@ -563,13 +563,15 @@
 
 
   <script>
-    fetch("https://api.github.com/users/ramilinator/repos")
+    fetch(
+      "https://api.github.com/search/repositories?q=user:ramilinator+topic:featured"
+    )
       .then(response => response.json())
       .then(data => {
 
         const container = document.getElementById("projects-container");
 
-        data.forEach(repo => {
+        data.items.forEach(repo => {
 
           const screenshotUrl =
             `https://raw.githubusercontent.com/${repo.full_name}/main/screenshot.png`;
@@ -581,45 +583,45 @@
           card.className = "project-card surface";
 
           card.innerHTML = `
-        <img
-          src="${screenshotUrl}"
-          alt="${repo.name}"
-          class="project-thumbnail"
-          onerror="this.onerror=null;this.src='${fallbackThumbnail}'"
-        >
+          <img
+            src="${screenshotUrl}"
+            alt="${repo.name}"
+            class="project-thumbnail"
+            onerror="this.onerror=null;this.src='${fallbackThumbnail}'"
+          >
 
-        <h3>${repo.name}</h3>
+          <h3>${repo.name}</h3>
 
-        <p>
-          ${repo.description || "No description available."}
-        </p>
+          <p>
+            ${repo.description || "No description available."}
+          </p>
 
-        <div class="project-links">
+          <div class="project-links">
 
-          ${repo.homepage
+            ${repo.homepage
               ? `<a href="${repo.homepage}" target="_blank" class="btn">
                   Visit Page
-                 </a>`
+                </a>`
               : ""
             }
 
-          <a
-            href="${repo.html_url}"
-            target="_blank"
-            class="btn"
-          >
-            View Repository
-          </a>
+            <a
+              href="${repo.html_url}"
+              target="_blank"
+              class="btn"
+            >
+              View Repository
+            </a>
 
-        </div>
-      `;
+          </div>
+        `;
 
           container.appendChild(card);
 
         });
 
-      });
-
+      })
+      .catch(error => console.error("Error fetching repositories:", error));
   </script>
 
 </body>
