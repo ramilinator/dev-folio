@@ -571,40 +571,33 @@
 
         const container = document.getElementById("projects-container");
 
-        data.items.forEach(repo => {
-
-          const screenshotUrl =
-            `https://raw.githubusercontent.com/${repo.full_name}/main/screenshot.png`;
-
-          const fallbackThumbnail =
-            `https://opengraph.githubassets.com/1/${repo.full_name}`;
-
-          const card = document.createElement("div");
-          card.className = "project-card surface";
-
-          card.innerHTML = `
+        data.items
+          .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at))
+          .forEach(repo => {
+            const screenshotUrl =
+              `https://raw.githubusercontent.com/${repo.full_name}/main/screenshot.png`;
+            const fallbackThumbnail =
+              `https://opengraph.githubassets.com/1/${repo.full_name}`;
+            const card = document.createElement("div");
+            card.className = "project-card surface";
+            card.innerHTML = `
           <img
             src="${screenshotUrl}"
             alt="${repo.name}"
             class="project-thumbnail"
             onerror="this.onerror=null;this.src='${fallbackThumbnail}'"
           >
-
           <h3>${repo.name}</h3>
-
           <p>
             ${repo.description || "No description available."}
           </p>
-
           <div class="project-links">
-
             ${repo.homepage
-              ? `<a href="${repo.homepage}" target="_blank" class="btn">
+                ? `<a href="${repo.homepage}" target="_blank" class="btn">
                   Visit Page
                 </a>`
-              : ""
-            }
-
+                : ""
+              }
             <a
               href="${repo.html_url}"
               target="_blank"
@@ -615,15 +608,12 @@
 
           </div>
         `;
+            container.appendChild(card);
 
-          container.appendChild(card);
-
-        });
-
+          });
       })
       .catch(error => console.error("Error fetching repositories:", error));
   </script>
-
 </body>
 
 </html>
